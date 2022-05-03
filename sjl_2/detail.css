@@ -1,0 +1,35 @@
+* {margin: 0; padding: 0; }
+body {background-color: #f5f6f7;}
+
+header 
+{width: 100%; height: 100px; background-color: rgb(255, 255, 255);
+position: relative;}
+header h1{position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);}
+a {text-decoration: none; color:  black;}
+a:hover {color:#00008b; text-decoration:underline;}
+
+#button 
+{background-color: rgba(255, 255, 255, 0.048);
+border: 1px solid rgba(0, 0, 0, 0.253);}
+#button a button {border: 0px; padding: 10px;}
+#button a button:hover {background-color: #00000025;}
+#title
+{border-bottom: 1px solid black;
+background-color: #FFF;
+padding: 10px;
+font-weight: bolder;}
+#ctnt
+{background-color: #FFF;
+    padding: 10px;}
+
+form {margin-top: 30px;}
+
+table {
+margin: 20px 40px;
+padding: 0px;}
+
+table tr td { border: 1px solid rgba(0, 0, 0, 0.253);
+padding: 3px;}
+
+.page_move {text-align: center;}
+.page_move button {padding: 5px 10px; font-size: 15px;}
