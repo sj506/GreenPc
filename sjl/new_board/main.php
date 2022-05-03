@@ -16,6 +16,7 @@
     <div>
         <a href="write_proc.php?i_board=<?=$i_board?>"></a>
     </div>
+    <!-- dsf -->
 </main>
 </body>
 </html>
