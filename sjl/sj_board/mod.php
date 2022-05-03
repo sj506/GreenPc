@@ -1,5 +1,6 @@
 <?php
-include_once 'db.php';
+include_once "db/db.php";
+
 
 $i_board = $_GET['i_board'];
 $sql = "SELECT * FROM board_1 WHERE i_board = $i_board ";

@@ -21,9 +21,13 @@ margin-left: 250px; padding: 15px;}
     border-radius: 6px;}
 .button:hover {background-color: #00000025;}
 
-.sidebar {    width: 250px; height: 1200px;
+.sidebar {    width: 250px;
     float: left; border-right: 1px solid rgba(0, 0, 0, 0.089);
-    background-color: rgb(193, 224, 185);}
+    background-color: rgb(193, 224, 185);
+	margin-top: -9999px;
+	margin-bottom: -9999px;
+	padding-top: 9999px;
+	padding-bottom: 9999px;}
 .sidebar ul li {text-align: center; padding: 5px;}
 .sidebar ul div {text-align: center; padding: 5px;}
 .sidebar ul li:hover {background-color: #c4c4c4;}

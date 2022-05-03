@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function m1() {
+            console.log('-- m1 fn called --');
+            return 1;
+        }
+
+        function m2() {
+            console.log('-- m2 fn called --');
+        }
+        // AND : true가 되기가 힘들다. 모두 true이어야만 true
+        //       하나라도 false가 있다면 그것은 false
+        if (m2() && m1()) {
+            console.log(' case 4 ');
+            console.log('////////////');
+        }
+        console.log('.......................');
+        if (m1() && m2()) {
+            console.log(' case 3 ');
+            console.log('////////////');
+        }
+
+        // OR : false가 되기가 힘들다. 모두 false이어야만 false가 된다.
+        //      하나라도 true가 있다면 그것은 true
+        if (m2() || m1()) {
+            console.log(' case 2 ');
+            console.log('---------');
+        }
+
+        if (m1() || m2()) {
+            console.log(' case 1 ');
+            console.log('---------');
+        }
+        /*
+            or문은 true가 될 가능성이 높은 조건식을 앞쪽으로 배치하는 것이 유리
+            and문은 false가 될 가능성이 높은 조건식을 앞쪽으로 배치하는 것이 유리
+        */
+    </script>
+</body>
+
+</html>

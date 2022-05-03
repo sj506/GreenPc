@@ -1,6 +1,7 @@
 <?php
 
-include_once "db.php";
+include_once "db/db.php";
+
 
 $title = $_POST['title'];
 $ctnt = $_POST['ctnt'];

@@ -1,5 +1,6 @@
 <?php
-include_once 'db.php';
+include_once "db/db.php";
+
 
 $i_board = $_POST['i_board'];
 $title = $_POST["title"];
