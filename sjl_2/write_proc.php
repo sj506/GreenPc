@@ -12,13 +12,15 @@ $param = [
     'ctnt' => $_POST['ctnt']
 ];
 
-if(empty($_GET))
-{
-$result = insert_board($param);
+
+if(isset($_POST['i_board']))
+{   
+    $param += ['i_board' => $_POST['i_board']];
+    $result = upd_board($param);
 }
 else
 {
-$result = upd_board($param);
+    $result = insert_board($param);
 }
 header("Location: list.php");
 

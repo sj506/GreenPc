@@ -53,6 +53,11 @@ location.href = "detail.php?i_board=<?=$i_board?>"
     </div>
     <form action="write_proc.php" method="post">
     <div>
+    <div>
+        <?php if(isset($_GET['i_board'])) { ?>
+            <input type="hidden" name = "i_board" value="<?=$i_board?>">
+        <?php }?>
+        </div>
     <label>제목 
     <input type="text" name="title" placeholder="제목" value="<?=$title?>"></label></div>
     <div>

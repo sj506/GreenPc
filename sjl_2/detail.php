@@ -9,6 +9,7 @@ $param = [
 $item = sel_board($param);
 $next_board = sel_next_board($param);
 $prev_board = sel_prev_board($param);
+
 ?>
 
 <!DOCTYPE html>
@@ -36,16 +37,14 @@ $prev_board = sel_prev_board($param);
     </div>
     <div id="print">
     <div id='title'> <?=$item['title']?>  /  작성자 : <?=$item['nm']?></div> 
-    <div id='ctnt'> <?=$item['ctnt']?> </div>
+    <div id='ctnt'> <?=nl2br($item['ctnt'])?> </div>
     </div>
 <main>
-    <div class = "page_move">
-        <?php if($prev_board !== 0) { ?>
-            <a href="detail.php?i_board=<?=$prev_board?>"><button>이전글</button></a>
-        <?php } ?>
-
-        <?php if($next_board !== 0) { ?>
-            <a href="detail.php?i_board=<?=$next_board?>"><button>다음글</button></a>
+<div class = "page_move">   
+    <?php if($next_board !== 0) {?>
+        <a href="detail.php?i_board=<?=$next_board?>"><button>다음글</button></a>
+        <?php } if($prev_board !== 0) { ?>
+        <a href="detail.php?i_board=<?=$prev_board?>"><button>이전글</button></a>
         <?php } ?>
     </div>
 </body>

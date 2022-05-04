@@ -10,31 +10,37 @@ if(isset($_SESSION['login_user']))
     $nm = $login_user['nm'];
 }
 
-$page = 1;
-
-if(isset($_GET["page"])) {       
-    $page = intval($_GET["page"]);
-}    
+$page =1;
+if(isset($_GET['page']))
+{
+    $page = intval($_GET['page']);
+}
 
 $row_count = 5;
 $param = [
-    "row_count" => $row_count,
-    "start_idx" => ($page - 1) * $row_count
+    'row_count' => $row_count,
+    'start_idx' => ($page - 1) * $row_count
 ];
 
 $paging_count = sel_paging_count($param);
 $list = sel_board_list($param);
 
 //검색 버튼을 눌렀고, 검색어가 존재한다면
+
+    //DB조회 전달 후 결과 list 를 받아온다
+
+$total_count = total_count_conn();
+$today_count = today_count_conn();
+
 if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
 {
-    $param += [
-        'search_select' => $_POST['search_select'], //select 박스 value 값
-        'search_input_txt' => $_POST['search_input_txt'] //검색어
-    ];
-    //DB조회 전달 후 결과 list 를 받아온다
-    $list = search_board($param);
+ $param += [
+    'search_select' => $_POST['search_select'],
+    'search_input_txt' => $_POST['search_input_txt']
+ ];   
+$list = search_board($param);
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +54,8 @@ if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
 </head>
 <body>
 <header>
-    <?php echo isset($_SESSION['login_user']) ? "${nm}님 환영합니다." : "" ; ?>
+    <?php echo '총 방문자 수 : ' . $total_count.'명 / 오늘 방문자 수 : ' . $today_count . '명 <br>';
+    echo isset($_SESSION['login_user']) ? "${nm}님 환영합니다." : "" ; ?>
     <a href="list.php"><h1>기록저장</h1></a>
 </header>
 <div class="sidebar">
@@ -72,7 +79,7 @@ if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
         <?php foreach($list as $item) { ?>
             <div class="write">
         <div id="title"><a href="detail.php?i_board=<?=$item['i_board']?>"><?=$item["title"]?></div>
-        <div><?= mb_substr( $item["ctnt"], 0, 300 )?></div></a>
+        <div><?=  mb_substr( $item["ctnt"], 0, 300 )?></div></a>
         </div>
         <?php } ?>
         </div>
@@ -83,18 +90,17 @@ if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
                 </span>
                 <?php }?>>
         </div>
-        <form action="list.php" method="POST">
         <div>
-            <select name="search_select">
-            <option value="search_title">제목</option>
-            <option value="search_ctnt">제목+내용</option>
-            <option value="search_writer">작성자</option>
-            </select>
-            <div>
-                <input type="text" name="search_input_txt">
-                <input type="submit" value="검색">
-            </div>
+                <form action="list.php" method="post">
+                    <select name="search_select" id="">
+                        <option value="search_title">제목</option>
+                        <option value="search_ctnt">제목+내용</option>
+                        <option value="search_writer">작성자</option>
+                    </select>
+                    <input type="text" name="search_input_txt">
+                    <input type="submit" value="검색">
+                </form>
         </div>
-        </form>
+
 </body>
 </html>
