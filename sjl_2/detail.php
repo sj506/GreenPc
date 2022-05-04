@@ -19,7 +19,6 @@ $prev_board = sel_prev_board($param);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?=$item['title']?></title>
     <link rel="stylesheet" href="detail.css">
-
 </head>
 <body>
 <header>
