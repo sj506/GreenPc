@@ -130,3 +130,67 @@ function sel_paging_count(&$param) {
         }
         return 0;
     }
+
+    function search_board(&$param)
+    {
+        $search_select = $param['search_select'];
+        $search_input_txt = $param['search_input_txt'];
+        $textArray = explode(" ", $search_input_txt);
+        // if($search_select !== "item")
+        // {
+        // $qurey = "SELECT A.i_board, A.title, A.ctnt, A.i_user, 
+        //                  B.i_user, B.nm 
+        //                  FROM sj_board AS A 
+        //                  INNER JOIN sj_user AS B 
+        //                  ON A.i_user = B.i_user
+        //                  where $search_select like '%$search_input_txt%' ";
+        //                  }
+        // else
+        // {
+        //     $qurey = "SELECT A.i_board, A.title, A.ctnt, A.i_user, 
+        //     B.i_user, B.nm 
+        //     FROM sj_board AS A 
+        //     INNER JOIN sj_user AS B 
+        //     ON A.i_user = B.i_user
+        //     where A.title like '%$search_input_txt%' or
+        //     A.ctnt like '%$search_input_txt%' ";
+        // }
+        $where = [];
+        
+        $query = "SELECT A.i_board, A.title, A.ctnt, A.i_user, B.i_user, B.nm 
+        FROM sj_board AS A 
+        INNER JOIN sj_user AS B 
+        ON A.i_user = B.i_user
+        where ";
+        
+        switch($search_select)
+        {
+            case "search_title" : 
+                $where += ['A.title'];
+                break;
+            case "search_ctnt" : 
+                $where += ['A.ctnt', 'A.title'];
+                break;
+            case "search_writer" : 
+                $where += ['B.nm'];
+                    break;
+            default;
+        }
+
+        for ($i = 0; $i < count($textArray); $i++) 
+        {
+            for ($j = 0; $j < count($where); $j++) 
+            {
+                $query = $query." $where[$j] LIKE '%$textArray[$i]%' ";
+                //마지막 검색어가 아니면
+                if(($i !== count($textArray) - 1) || ($j !== count($where) - 1)){ 
+                    $query = $query."OR";
+                }
+            }
+        }
+
+        $conn = get_conn();
+        $result = mysqli_query($conn, $query);
+        mysqli_close($conn);    
+        return $result;
+        }

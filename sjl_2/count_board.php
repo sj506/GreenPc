@@ -10,28 +10,19 @@
     $sql = "SELECT * FROM count_db where redate = '$dat'";
 
     $result = mysqli_query($conn,$sql);
-    $list = mysqli_num_rows($result);
+    $row = mysqli_fetch_array($result);
     //결과집합을 받아온다
 
-    if(!$list) // 아무도 들어온 적이 없을 경우
+    if(!$row) // 아무도 들어온 적이 없을 경우
     {
-        $count = 0;
-    }
-    else
-    {
-        $row = mysqli_fetch_array($result);
-        $count = $row['COUNT'];
-    }
-
-    if($count === 0)
-    { //오늘 날짜로 새로운 count 값을 추가한다
-        $count++;
+        $count = 1;
         $sql = "INSERT INTO count_db 
         values
         ('$count','$dat')";
     }
     else
-    {// 오늘 날짜의 기존 count 값을 변경시킨다
+    {
+        $count = $row['COUNT'];
         $count++;
         $sql = "UPDATE count_db 
         set count = '$count' 
