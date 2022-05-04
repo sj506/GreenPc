@@ -25,6 +25,17 @@ $param = [
 $paging_count = sel_paging_count($param);
 $list = sel_board_list($param);
 
+//검색 버튼을 눌렀고, 검색어가 존재한다면
+if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
+{
+    $param += [
+        'search_select' => $_POST['search_select'], //select 박스 value 값
+        'search_input_txt' => $_POST['search_input_txt'] //검색어
+    ];
+    //DB조회 전달 후 결과 list 를 받아온다
+    $list = search_board($param);
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -72,5 +83,18 @@ $list = sel_board_list($param);
                 </span>
                 <?php }?>>
         </div>
+        <form action="list.php" method="POST">
+        <div>
+            <select name="search_select">
+            <option value="search_title">제목</option>
+            <option value="search_ctnt">제목+내용</option>
+            <option value="search_writer">작성자</option>
+            </select>
+            <div>
+                <input type="text" name="search_input_txt">
+                <input type="submit" value="검색">
+            </div>
+        </div>
+        </form>
 </body>
 </html>
