@@ -197,7 +197,20 @@ function upd_board(&$param)
             $sql = "SELECT * from count_db where redate = '$date'";
             $conn = get_conn();
             $result = mysqli_query($conn, $sql);
-            $row = mysqli_fetch_assoc($result);
+            $row = mysqli_fetch_assoc($result); 
             mysqli_close($conn);    
             return $row['COUNT'];
         }
+        // function plus_conn($param)
+        // {
+        //     $count = $param['today_count'];
+        //     $count++;
+        //     $sql = "UPDATE count_db
+        //             set count = $count
+        //             where redate =";
+        //     $conn = get_conn();
+        //     $result = mysqli_query($conn, $sql);
+        //     $row = mysqli_fetch_assoc($result); 
+        //     mysqli_close($conn);    
+        //     return $row['COUNT'];
+        // }
