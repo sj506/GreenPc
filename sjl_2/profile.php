@@ -12,5 +12,6 @@
     <div><label>이미지 : <input type="file" name="img" accept="image/*"></label></div>
     <div><input type="submit" value="입력"></div>
     </form>
+    <a href="list.php">리스트</a>
 </body>
 </html>

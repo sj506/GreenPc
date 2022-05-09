@@ -3,7 +3,7 @@
 include_once "db/db_user.php";
 
 session_start();
-$login_user = $_SESSION['login_user'];
+$login_user = &$_SESSION['login_user'];
 
 define("PROFILE_PATH","img/profile/");
 
@@ -43,16 +43,22 @@ if(!is_dir($target_full_path))
 $imageUpload = move_uploaded_file($_FILES["img"]['tmp_name'], $target_full_path . "/" . $target_filenm);
 
 if($imageUpload) // 업로드 성공
-{    
+{       //TODO : 이전에 등록된 프사가 있으면 삭제
+    if($login_user['profile_img'])
+    {   $saved_img = $target_full_path . "/" . $login_user['profile_img'];
+        if(file_exists($saved_img)) 
+        {unlink($saved_img);
+        }
+    }
+    $login_user["profile_img"] = $target_filenm;
 
-    //TODO : 이전에 등록된 프사가 있으면 삭제
 $param = [
     "profile_img" => $target_filenm,
     "i_user" => $login_user["i_user"]
 ];
 
-$result = upd_profile_img($param);
 
+$result = upd_profile_img($param);
  header("Location: profile.php");
 }
 else //업로드 실패
