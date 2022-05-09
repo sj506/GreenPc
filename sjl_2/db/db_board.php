@@ -104,6 +104,7 @@ function upd_board(&$param)
 
         $sql = "SELECT * FROM sj_board 
                 WHERE i_board > $i_board 
+                order by i_board
                 LIMIT 1
                 ";
                 $conn = get_conn();
@@ -121,6 +122,7 @@ function upd_board(&$param)
 
         $sql = "SELECT * FROM sj_board 
                 WHERE i_board < $i_board 
+                order by i_board desc
                 LIMIT 1
                 ";
                 $conn = get_conn();
@@ -187,12 +189,9 @@ function upd_board(&$param)
             return $row['con'];
         }
         
-        function today_count_conn()
+        function today_count_conn(&$param)
         {
-            $yy = date('Y'); 
-            $mm = date('m');
-            $dd = date('d');
-            $date = $yy.'-'.$mm.'-'.$dd;
+            $date = $param['date'];
 
             $sql = "SELECT * from count_db where redate = '$date'";
             $conn = get_conn();
@@ -201,16 +200,31 @@ function upd_board(&$param)
             mysqli_close($conn);    
             return $row['COUNT'];
         }
-        // function plus_conn($param)
-        // {
-        //     $count = $param['today_count'];
-        //     $count++;
-        //     $sql = "UPDATE count_db
-        //             set count = $count
-        //             where redate =";
-        //     $conn = get_conn();
-        //     $result = mysqli_query($conn, $sql);
-        //     $row = mysqli_fetch_assoc($result); 
-        //     mysqli_close($conn);    
-        //     return $row['COUNT'];
-        // }
+
+        function new_count($param)
+        {
+            $date = $param['date'];
+            $count = 1;
+            $sql = "INSERT INTO count_db 
+            values
+            ('$count','$date')";
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);    
+            return $result;
+        }
+        function plus_count($param)
+        {
+            $date = $param['date'];
+            $today_count = $param['today_count'];
+
+            $count = $today_count;
+            $count++;
+            $sql = "UPDATE count_db 
+            set count = '$count' 
+            where redate = '$date'";
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);    
+            return $result;
+        }

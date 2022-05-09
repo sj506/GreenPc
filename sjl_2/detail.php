@@ -36,16 +36,22 @@ $prev_board = sel_prev_board($param);
     <?php } ?>
     </div>
     <div id="print">
-    <div id='title'> <?=$item['title']?>  /  작성자 : <?=$item['nm']?></div> 
+    <div id='title'><<?=$item['i_board']?>> <?=$item['title']?>  /  작성자 : <?=$item['nm']?></div> 
     <div id='ctnt'> <?=nl2br($item['ctnt'])?> </div>
     </div>
 <main>
 <div class = "page_move">   
-    <?php if($next_board !== 0) {?>
-        <a href="detail.php?i_board=<?=$next_board?>"><button>다음글</button></a>
-        <?php } if($prev_board !== 0) { ?>
+    <?php if($prev_board !== 0) {?>
         <a href="detail.php?i_board=<?=$prev_board?>"><button>이전글</button></a>
+        <?php } if($next_board !== 0) { ?>
+        <a href="detail.php?i_board=<?=$next_board?>"><button>다음글</button></a>
         <?php } ?>
     </div>
+<div>
+    <form action="comm_proc.php" method="post">
+            <input type="text" name="comm" placeholder="댓글입력">
+            <input type="submit" value="입력">
+    </form>
+</div>
 </body>
 </html>

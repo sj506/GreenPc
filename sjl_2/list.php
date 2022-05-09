@@ -29,8 +29,14 @@ $list = sel_board_list($param);
 
     //DB조회 전달 후 결과 list 를 받아온다
 
-$total_count = total_count_conn();
-$today_count = today_count_conn();
+    $yy = date('Y'); 
+    $mm = date('m');
+    $dd = date('d');
+    $date = $yy.'-'.$mm.'-'.$dd;
+
+$param = [
+    'date' => $date
+];
 
 if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
 {
@@ -41,6 +47,18 @@ if(isset($_POST['search_input_txt']) && $_POST['search_input_txt'] !== "")
 $list = search_board($param);
 }
 
+$total_count = total_count_conn();
+$today_count = today_count_conn($param);
+
+if(!$today_count)
+{
+new_count($param);
+}
+else
+{
+$param += ['today_count' => $today_count];
+plus_count($param);
+}
 
 ?>
 <!DOCTYPE html>
@@ -55,7 +73,9 @@ $list = search_board($param);
 <body>
 <header>
     <?php echo '총 방문자 수 : ' . $total_count.'명 / 오늘 방문자 수 : ' . $today_count . '명 <br>';
-    echo isset($_SESSION['login_user']) ? "${nm}님 환영합니다." : "" ; ?>
+    echo isset($_SESSION['login_user']) ? "${nm}님 환영합니다." : "" ; 
+    ?>
+    
     <a href="list.php"><h1>기록저장</h1></a>
 </header>
 <div class="sidebar">
@@ -71,6 +91,7 @@ $list = search_board($param);
     <?php session_start();
     if(isset($_SESSION['login_user'])) { ?>
     <a href="logout.php"><button class="button">로그아웃</button></a>
+    <a href="profile.php"><button class="button">프로필</div></a>
     <?php } else {?>
     <a href="login.php"><button class="button">로그인</button></a>
     <?php } ?>

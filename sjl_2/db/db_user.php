@@ -37,3 +37,15 @@ function login_user(&$param)
     }
     return $row;
 }
+// 
+function upd_profile_img(&$param)
+{
+    $sql = "UPDATE sj_user 
+    SET profile_img = '{$param['profile_img']}' 
+    WHERE i_user = {$param['i_user']} 
+    ";
+    $conn = get_conn();
+    $result = mysqli_query($conn,$sql);
+    mysqli_close($conn);
+    return $result;
+}
