@@ -91,7 +91,14 @@ plus_count($param);
     <?php session_start();
     if(isset($_SESSION['login_user'])) { ?>
     <a href="logout.php"><button class="button">로그아웃</button></a>
-    <a href="profile.php"><button class="button">프로필</div></a>
+    <a href="profile.php">
+        <button class="button">프로필</button>
+    <?php 
+    $session_img = $_SESSION["login_user"] ["profile_img"];
+    $profile_img = $session_img == null ? "basic.jpg" : $_SESSION["login_user"]["i_user"] . "/" . $session_img ?>
+    <div class="circular__img circular__sige40">
+        <img src="/sjl_2/img/profile/<?=$profile_img?>" alt="기본이미지" width="100">
+    </div></a>
     <?php } else {?>
     <a href="login.php"><button class="button">로그인</button></a>
     <?php } ?>
@@ -99,8 +106,13 @@ plus_count($param);
     <div>
         <?php foreach($list as $item) { ?>
             <div class="write">
-        <div id="title"><a href="detail.php?i_board=<?=$item['i_board']?>"><?=$item["title"]?></div>
-        <div><?=  mb_substr( $item["ctnt"], 0, 300 )?></div></a>
+        <div id="title"><a href="detail.php?i_board=<?=$item['i_board']?>"><?=$item["title"]?>
+        <div class="circular__img circular__sige40">
+        <?php $borad_profile = $item["profile_img"] == null ? "basic.jpg" : $item["i_user"] . "/" . $item["profile_img"] ?>    
+        <img src="/sjl_2/img/profile/<?=$borad_profile?>" alt="프로필사진"></div>
+        </div>
+        <div class="writer"><?=$item['nm']?></div>
+        <div><?=mb_substr( $item["ctnt"], 0, 300 )?></div></a>
         </div>
         <?php } ?>
         </div>

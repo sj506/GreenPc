@@ -30,6 +30,7 @@ echo gen_uuid_v4();
 
 $img_name = $_FILES["img"]["name"];
 $last_index = mb_strrpos($img_name,".");
+// 오른쪽에서 .이 몇번째에 있는지 인덱스값을 리턴해주는 것
 $ext = mb_substr($img_name,$last_index);
 
 $target_filenm = gen_uuid_v4() . $ext;

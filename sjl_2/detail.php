@@ -2,6 +2,10 @@
 
 include_once "db/db_board.php";
 
+session_start();
+if(isset($_SESSION['login_user']))
+{
+$uid = $_SESSION['login_user']['uid'];}
 $param = [
     'i_board' => $_GET['i_board']
 ];
@@ -9,6 +13,8 @@ $param = [
 $item = sel_board($param);
 $next_board = sel_next_board($param);
 $prev_board = sel_prev_board($param);
+
+$comm = comm_sel();
 
 ?>
 
@@ -48,7 +54,16 @@ $prev_board = sel_prev_board($param);
         <?php } ?>
     </div>
 <div>
+            <?php foreach($comm as $item) { ?>
+                <div>
+                    <?=$item['uid']?> <?=$item['comm']?> <a href="comm_del.php?i_comm=<?=$item['i_comm']?>&&i_board=<?=$_GET['i_board']?>"><button>댓글삭제</button></a>
+                </div>
+                <?php }?>
+</div>
+    <div>
     <form action="comm_proc.php" method="post">
+            <input type="hidden" name="i_board" value="<?=$_GET['i_board']?>">
+            <input type="hidden" name="uid" value="<?=$uid?>">
             <input type="text" name="comm" placeholder="댓글입력">
             <input type="submit" value="입력">
     </form>

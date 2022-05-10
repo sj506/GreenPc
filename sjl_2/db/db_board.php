@@ -7,7 +7,7 @@ function sel_board_list(&$param)
     $start_idx = $param['start_idx'];
     $row_count = $param['row_count'];
     $sql = "SELECT A.i_board, A.title, A.ctnt, 
-                    B.nm 
+                    B.nm , B.profile_img, B.i_user
             from sj_board AS A 
             INNER join sj_user as B 
             ON A.i_user = B.i_user 
@@ -227,4 +227,47 @@ function upd_board(&$param)
             $result = mysqli_query($conn, $sql);
             mysqli_close($conn);    
             return $result;
+        }
+
+        function comm_ins(&$param)
+        {
+            $uid = $param['uid'];
+            $comm = $param['comm'];
+
+            $sql = "INSERT INTO sj_comm
+            (uid,comm)
+            value
+            ('$uid','$comm')
+            ";
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);    
+            return $result;
+        }
+
+        function comm_sel()
+        {
+            $sql = "SELECT * from sj_comm order by i_comm desc;
+            ";
+            $conn = get_conn();
+            $result = mysqli_query($conn, $sql);
+            mysqli_close($conn);    
+            return $result;
+        }
+
+        function comm_del(&$param)
+        {
+            $i_comm = $param['i_comm'];
+
+            $sql = "DELETE from sj_comm where i_comm = $i_comm
+            ";
+                        $conn = get_conn();
+                        $result = mysqli_query($conn, $sql);
+                        mysqli_close($conn);    
+                        return $result;
+        }
+
+        function board_comm(&$param)
+        {
+
         }
