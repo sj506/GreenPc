@@ -1,0 +1,14 @@
+<script>
+
+let url = "https://picsum.photos/v2/list"
+
+fetch(url).then(function(res)
+{
+    return res.json();
+})
+
+.then(function(list)
+{
+    console.log(list);
+})
+</script>

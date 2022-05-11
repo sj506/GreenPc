@@ -12,6 +12,7 @@ let p1 = new Promise(function(resolve, reject)
     }
 });
 
+
 p1.then(function(result)
 {
     console.log('then : ' + result);
