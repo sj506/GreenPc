@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let memNum = prompt("입장객은 몇 명인가요?");
+      let colNum = prompt("한 줄에 몇 명씩 앉습니까?");
+      let rowNum = 0;
+
+      let a = memNum / colNum;
+      rowNum = Math.ceil(a);
+      document.write(`모두 ${rowNum}개의 줄이 필요합니다`);
+    </script>
+  </body>
+</html>
