@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            #result {
+                height: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <ul>
+            <!-- event.preventDefault(); 원래 태그 속성 제거 -->
+            <li><a href="#" onclick="changeBG('green')">Green</a></li>
+            <li><a href="#" onclick="changeBG('Orange')">Orange</a></li>
+            <li><a href="#" onclick="changeBG('Purple')">Purple</a></li>
+        </ul>
+        <div id="result"></div>
+        <script>
+            function changeBG(color) {
+                const resultDiv = document.querySelector("#result");
+                resultDiv.style.backgroundColor = color;
+            }
+            const resultDiv = 3;
+            document.write(resultDiv);
+        </script>
+    </body>
+</html>
