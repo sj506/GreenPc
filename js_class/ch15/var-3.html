@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var x = 10;
+        function displayNumber() {
+            console.log(` x is ${x}`);
+            console.log(` y is ${y}`);
+            var y = 20; // 찍어보면 y is undefined 로 뜨는데, 이유는 호이스팅 떄문.
+            // 호이스팅이 var = y;까지는 올라가는데, 20이라는 값까지 올라가지 않기 때문에
+            // 변수선언만 된 상황. 그래서 undefined로 나타남. 
+            /*  아래와 같음.
+                var y;
+                console.log(` x is ${x}`);
+                console.log(` y is ${y}`);
+            */
+           //cons 와 let 을 var대신 사용.
+           // 
+        }
+        displayNumber();
+        // 모든 변수들은 내가 들어있는 {중괄호}까지 허용.
+    </script>
+</body>
+</html>

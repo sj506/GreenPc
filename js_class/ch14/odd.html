@@ -7,16 +7,13 @@
     <title>Document</title>
 </head>
 <body>
+    <h3>홀수끼리 더하기</h3>
     <script>
         var sum = 0;
-        sum += 1;   //sum = sum +1;
-        sum += 2;
-        sum += 3;
-        sum += 4;
-        sum += 5;
-
-        console.log(`sum : ${sum} `);
-
+        for(i=1; i<11; i+=2){
+            sum += i;
+            document.write(`${i} --- ${sum}<br>`);
+        }
     </script>
 </body>
 </html>

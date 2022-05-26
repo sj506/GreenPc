@@ -1,26 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Document</title>
-    </head>
-    <body>
-        <script>
-            let n = prompt("숫자를 입력하세요 : ");
-            let a = 1;
-            let i = 1;
-            if (n === null || n == "" || isNaN(n) == true) {
-                alert("No! 입력!");
-            } else {
-                while (i <= n) {
-                    a *= i;
-                    i++;
-                }
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var n = prompt('숫자를 입력하세요 : ');
+        // while문으로 해결.
+        // 값을 입력하지 않았다면 화면에 "No 입력!"나타나게 하고,
+        // 숫자 값을 입력했다면 팩토리얼 한다.
+        // ex) 5 > 5*4*3*2*1 > 결과값을 화면에 나타낸다.
+        // 내 답
+        // if ( n === null || n === '' ){
+        //     document.write('입력되지 않았습니다.');
+        // }  else {
+        //     var result = 1;
+        //     while( n > 0 ){
+        //         result *= n--;
+        //     }
+        //     document.write(`result:${result}`);
+        // }
+
+        // var result = 1;
+        // if ( n !== "" ) {
+        //     while ( n > 0 ) {
+        //         result *= n-1;
+        //     }
+        // }
+        // document.write(`result : ${result}`)
+
+        /* 
+        
+        // 선생님풀이 -- 1번
+        if ( n === null) {
+            document.write('no write!');
+        } else {
+            var cnt = parseInt(n);
+            var result = 1;
+            while(cnt > 0) {
+                result *= cnt--;
             }
-            document.write("<br>");
-            document.write(a);
-        </script>
-    </body>
+        }
+        document.write(`결과 : ${result}`);
+        */
+       
+        // 선생님풀이 -- 2번
+        if(n === null || n ==='') {
+            document.write('no write');
+        }else{
+            var cnt = parseInt(n);
+            if(cnt) {
+                var result = 1;
+                while(cnt > 0) {
+                    result *= cnt--;
+                    // result = result * cnt;
+                    // cnt--;
+                }
+                document.write(`${n}! : ${result}`);
+            }else{
+                document.write(`숫자를 입력해 주세요.`);
+            }
+        }
+
+
+    </script>
+</body>
 </html>
+<!-- // 몇번 입력해야하는지 알 경우에는  for문, 모를경우에는 while문  -->

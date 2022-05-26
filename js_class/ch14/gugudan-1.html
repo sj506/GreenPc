@@ -1,30 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-      .dan {
-        display: inline-block;
-        border: 1px solid #ccc;
-        padding: 10px;
-      }
+        .dan { 
+                display: inline-block; 
+                padding: 0 20px 30px 20px;
+                margin: 15px; 
+                border: 1px solid #ccc;
+                line-height: 2;
+            }
+        .dan h3 { 
+                    text-align: center; 
+                    font-weight: bold; 
+                }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <h1>구구단</h1>
-    <div></div>
     <script>
-      for (let i = 1; i <= 9; i++) {
-        document.write("<div class = 'dan'>");
-        for (let z = 2; z <= 9; z++) {
-          let val = i * z;
-          document.write(`${i}x${z} = ${val} <br>`);
+        for( var i=2; i<=9; i++ ) {
+            document.write(`<div class="dan">`);
+            document.write(`<h3>${i}단</h3>`);
+            for(var z=1; z<=9; z++){
+                // var a = i * z;
+                // document.write(`${i} X ${z} = ${a}<br>`);
+
+                // 선생님 풀이
+                // document.write(`<div>${i} X ${z} = ${i*z}</div>`);
+
+                document.write(`<div>${i} X ${z} = ${i*z}</div>`);
+            }
+            // document.write('</br>');
+            document.write(`</div>`);
+
         }
-        document.write("</div>");
-      }
     </script>
-  </body>
+</body>
 </html>

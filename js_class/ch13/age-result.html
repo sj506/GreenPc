@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var currentYear = 2022;
+        var birthYear;
+        var age;
+
+        birthYear = prompt('태어난 연도를 입력하세요.(YYYY)');      // 문자열(숫자로된)타입
+        // age = currentYear - birthYear +1;
+        age = currentYear - parseInt(birthYear) +1; // 숫자형식으로 바꿔줌.
+        document.write(`${birthYear}년에 대어난 사람의 나이는 ${age}세 입니다.`);
+        // 만약 더하기 였다면, 
+        // age = currentYear + parseInt(birthYear) +1; 또는 age = currentYear + ~~(birthYear) +1;
+        // document.write(`${birthYear}년에 대어난 사람의 나이는 ${age}세 입니다.`);
+        
+        // age식에서 - 빼기는 연산자역할 뿐이라서 형식 상관없이 숫자로 계산이 됨.
+        // +는 다름, 문자열붙이기/연산자역할 두가지 역할이 있기 때문에 형식을 맞춰야함. 
+        // 만약 저상태에서 +로 변경한면, 숫자형보다 문자형이 우선이라서 문자열합치기로 나타남.
+    </script>
+</body>
+</html>

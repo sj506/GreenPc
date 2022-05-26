@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 가장 중요함. -->
+    <!-- function 함수명(매개변수=파라미터) 
+        function = 섬, () 외부로부터 값을 받을 수 있는 항구,
+        ()빈칸은 내부의 값으로 표시하겠다.라는 뜻으로 외부의 값이 필요없을때 () 아무것도 없는 상태여야함. 
+        전역변수의 값은 최대한 사용하지 않는것이 좋음. 만약 사용한다면 (전역변수)를 넣어서 사용.    
+        함수는 정의하는부분, 쓰는부분이 있다.
+        정의부분 => 
+        쓰는 부분 => 
+    -->
+    <script>
+        /* 매개변수 없이 사용.
+        function addNumber() {  // 정의 부분.
+            var n1 = 2;
+            var n2 = 3;
+            var sum = n1 + n2;
+            document.write(`결괏값 : ${sum}`);
+            // 정의만한상태라서 함수값이 안나옴.
+        }
+
+        addNumber();    // 쓰는 부분 [즉, 호출함!] //정의한 것을 호출했음. => 브라우저에 나타남.
+        */
+
+        function addNumber(n1,n2) { //()매개변수를 사용해서, 외부로 부터 값을 받아올 수 있는 상태가 됨.
+            var sum = n1 + n2;
+            document.write(`결괏값 : ${sum}<br>`);
+            return; // 모든 함수는 리턴을 가지고 있고, 리턴을 만나야 종료가 된다.
+            // 값을 가지고 오지 않는 리턴이라는 뜻이고, 보이드함수.
+        }
+        addNumber(10,20); 
+        // addNumber의 값을 호출하면 function안에 var로 돌아가서 값을 대입시켜주고, 리턴을 만났을때 그 값을 다시 addNumber로 담아 준다.
+        addNumber(1, 2, 5);     // 내가 받을 수 있는 값은 2개인데, 3개 작성했을 때 자바스크립트만 에러안터짐. 순서대로 들어가진다.
+                                // 파라미터 쪽에서는 5를 받을 공간이 없음. 
+        addNumber(100,25);
+        addNumber();
+        addNumber();    // 결괏값이 NaN인 이유? 변수를 선언했는데, 값을 주지 않아서 NaN (변수들이 undefined 상태.)
+    </script>
+
+</body>
+</html>
