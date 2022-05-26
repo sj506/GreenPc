@@ -25,18 +25,15 @@
             var memNum = Number(prompt("입장객 수"));
             if (memNum > 0) {
                 var colNum = 6;
-                var rowNum = Math.ceil(memNum / colNum); // rowNum = 줄 갯수
                 document.write("<table>");
-                for (var i = 0; i < rowNum; i++) {
-                    document.write("<tr>");
-                    for (var z = 1; z <= colNum; z++) {
-                        document.write(`<td>좌석${i * colNum + z}</td>`);
-                        if (z > colNum) {
-                            document.write("<td></td>");
-                        }
+                document.write("<tr>");
+                for (var i = 1; i <= memNum; i++) {
+                    document.write(`<td>좌석${i}</td>`);
+                    if (i % colNum === 0) {
+                        document.write(`<tr></tr>`);
                     }
-                    document.write("</tr>");
                 }
+                document.write("</tr>");
                 document.write("</table>");
             }
         </script>
