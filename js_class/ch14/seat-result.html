@@ -22,13 +22,15 @@
     <body>
         <h2>자리배치도</h2>
         <script>
+            var colNum = 6;
             var memNum = Number(prompt("입장객 수"));
+            var seatNum = 1;
+            var rowNum = Math.ceil(memNum / colNum); // rowNum = 줄 갯수
             if (memNum > 0) {
-                var colNum = 6;
                 document.write("<table>");
                 document.write("<tr>");
-                for (var i = 1; i <= memNum; i++) {
-                    document.write(`<td>좌석${i}</td>`);
+                for (var i = 1; i <= colNum * rowNum; i++) {
+                    document.write(seatNum <= memNum ? `<td>좌석${seatNum++}</td>` : `<td></td>`);
                     if (i % colNum === 0) {
                         document.write(`<tr></tr>`);
                     }

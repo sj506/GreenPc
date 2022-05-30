@@ -14,18 +14,32 @@
     <body>
         <ul>
             <!-- event.preventDefault(); 원래 태그 속성 제거 -->
-            <li><a href="#" onclick="changeBG('green')">Green</a></li>
-            <li><a href="#" onclick="changeBG('Orange')">Orange</a></li>
+            <li><a href="#" id="firstA">Green</a></li>
+            <li><a href="#" id="secondA">Orange</a></li>
             <li><a href="#" onclick="changeBG('Purple')">Purple</a></li>
         </ul>
         <div id="result"></div>
         <script>
+            const resultDiv = document.querySelector("#result");
+
             function changeBG(color) {
-                const resultDiv = document.querySelector("#result");
                 resultDiv.style.backgroundColor = color;
             }
-            const resultDiv = 3;
-            document.write(resultDiv);
+
+            function changeOrange() {
+                resultDiv.style.backgroundColor = "orange";
+            }
+            firstA.onclick = function () {
+                changeBG("green");
+            };
+
+            function bindFn() {
+                return function () {
+                    resultDiv.style.backgroundColor = "orange";
+                };
+            }
+            const secondA = document.querySelector("#secondA");
+            secondA.onclick = bindFn();
         </script>
     </body>
 </html>

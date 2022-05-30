@@ -1,28 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <script>
-        function addSum() {
-            var sum = 10 + 20;
-        }
-        addSum();       //호출되었지만 호출되지 않음.
-        console.log(sum);
-        // 호이스팅은 자신을 감싸고 있는 중괄호까지만 허용.
-        // function안에서 선언된 함수가 function밖까지 호이스팅이 되지 않는다.
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function addSum() {
+                var sum = 10 + 20;
+            }
+            addSum(); //호출되었지만 호출되지 않음.
+            console.log(sum);
+            // 호이스팅은 자신을 감싸고 있는 중괄호까지만 허용.
+            // function안에서 선언된 함수가 function밖까지 호이스팅이 되지 않는다.
 
-        // 호출되려면.?
-        // var sum;
-        // function addSum() {
-        //     sum = 10 + 20;
-        // }
-        // addsum();
-        // console.log(sum);
-    </script>
-</body>
+            // 호출되려면.?
+            var sum;
+            function addSum() {
+                sum = 10 + 20;
+            }
+            console.log(sum);
+        </script>
+    </body>
 </html>
