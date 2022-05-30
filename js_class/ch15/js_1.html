@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="fruit">딸기</div>
+        <div id="fruit">바나나</div>
+        <div id="fruit">수박</div>
+    </body>
+</html>
+<script>
+    const mydiv = document.querySelectorAll("#fruit");
+    console.log(mydiv);
+
+    mydiv.forEach((eee) => {
+        eee.style.border = "1px solid blue";
+        eee.style.backgroundColor = "green";
+        eee;
+    });
+
+    const Numbers = new Array();
+    Numbers.push("c");
+    //쿼리문과 다름 다 써줘야함
+    console.log(Numbers);
+</script>
