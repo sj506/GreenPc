@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>회원가입</title>
 </head>
-<body>
+<body id = "text">
     <h1>회원가입</h1>
     <a href="login.php">로그인</a>
     <form action="join_proc.php" method="post">
