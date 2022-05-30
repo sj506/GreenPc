@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const n1 = Number(prompt("값 1"));
+            const n2 = Number(prompt("값 2"));
+
+            function whoBig(x, y) {
+                if (x === y) {
+                    return alert(`${x}는 ${y}와 같습니다`);
+                }
+                if (x > y) {
+                    return alert(`${x}(이)가 ${y}보다 큽니다`);
+                } else {
+                    return alert(`${y}(이)가 ${x}보다 큽니다`);
+                }
+            }
+            console.log(whoBig(n1, n2));
+        </script>
+    </body>
+</html>
