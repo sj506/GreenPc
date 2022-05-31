@@ -31,7 +31,11 @@
                 //     return h;
                 // };
                 // const amPm = currentTime.amPm();
-                document.querySelector("#current").innerHTML = currentTime.toLocaleTimeString();
+                document.querySelector("#current").innerHTML = currentTime.toLocaleTimeString("ko-KR", {
+                    hour: "2-digit",
+                    minute: "2-digit",
+                    second: "2-digit",
+                });
             }
         </script>
     </body>
