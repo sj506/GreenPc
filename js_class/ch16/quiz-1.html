@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>현재 시각</title>
+    </head>
+    <body>
+        <p>
+            현재 시각
+            <span id="current" class="display"> </span>
+        </p>
+        <script>
+            let cnt = 0;
+            setInterval(displayNow, 1000);
+            // setInterval(function () {
+            //     console.log(cnt++);
+            // }, 1000);
+            // setTimeout(function () {
+            //     console.log("한번만");
+            // }, 10000);
+
+            function displayNow() {
+                const currentTime = new Date();
+                // Date.prototype.amPm = function () {
+                //     let h =
+                //         this.getHours() < 12
+                //             ? ` 오전 ${this.getHours()}:${this.getMinutes()}:${this.getSeconds()}`
+                //             : `오후 ${this.getHours() - 12}:${this.getMinutes()}:${this.getSeconds()}`;
+                //     return h;
+                // };
+                // const amPm = currentTime.amPm();
+                document.querySelector("#current").innerHTML = currentTime.toLocaleTimeString();
+            }
+        </script>
+    </body>
+</html>

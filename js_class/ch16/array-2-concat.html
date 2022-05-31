@@ -10,8 +10,10 @@
         <script>
             const arr = ["A", "B", "C"];
             const arr2 = arr.concat(["D", "E"]);
+            const arr3 = arr.concat(arr2);
+            const arr4 = arr.concat(arr2).concat(arr3);
             //arr에 저장되는 건 주소값
-            console.log(arr2);
+            console.log(arr4);
             console.log(arr);
         </script>
     </body>

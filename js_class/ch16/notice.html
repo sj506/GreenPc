@@ -7,17 +7,15 @@
         <title>Document</title>
     </head>
     <body>
+        <button id="close">닫기</button>
         <script>
-            const arr = [1, 2, 3, 4, 5, 4, 3, 2, 1];
-            console.log(arr);
-            console.log(arr.push(100));
-            console.log(arr);
+            console.log("알림");
+            opener.changeBack();
 
-            // pop
-            // shift
-
-            console.log(arr.pop());
-            // 가장 마지막 값이 리턴됨
+            const btnClose = document.querySelector("#close");
+            btnClose.addEventListener("click", () => {
+                close();
+            });
         </script>
     </body>
 </html>
