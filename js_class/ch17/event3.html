@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>event객체</title>
+    </head>
+    <body>
+        <img src="https://img.insight.co.kr/static/2021/09/30/700/img_20210930094957_0o5r1272.webp" id="frog" />
+        <script>
+            const imgFrog = document.querySelector("#frog");
+            imgFrog.onclick = function (e) {
+                console.log(`이벤트 유형 : ${e.type}, 발생위치 :  ${e.pageX}, ${e.pageY}`);
+                console.log(e.altKey);
+                // altKey는 alt키를 누른상태에서 그림을 클릭했을때 true 아닐 때 false출력
+                console.log(e.target);
+                // 클릭
+            };
+            // 주솟값을 얻어오지 않고 이벤트 값을 걸어야 할 때가 있는데, 그때, e.target하면 주솟값을 가지고 올 수 있음.
+
+            // 자주 일어나지 않음. 그리고 아직 캡쳐링, 버블링 그냥 있다는 것만 알면 됨.
+            // 영화소개페이지 에서 출연진 또는 영화 소개 등 눌렀을때 그 정보를 볼 수 있도록 해야하는데,
+            // 그 자식 이벤트 말고 부모이벤트가 실행 될때.
+            // capturing = 부모에게서 일어난 이벤트가 자식들한테 전파가 되는것.
+            // bubbling - 자식을 클릭했는데 부모에게서 일어난 이벤트가 실행되는것.
+        </script>
+    </body>
+</html>

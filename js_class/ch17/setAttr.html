@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>setAttr</title>
+    <style>
+        #main{ width: 500px; height: 300px; }
+        #main > img {width: 100%;}
+        #sub{ width: 500px; height: 100px; display: flex; }
+        #sub > img { flex-grow: 1;}
+    </style>
+</head>
+<body>
+    <div id="main" >
+        <img src="https://blog.kakaocdn.net/dn/TGLku/btrgDUCIkBI/ppowIbObTYU9uVXjnTKbO0/img.png">
+    </div>
+    <div id="sub" onclick="changeImg();">
+        <img src="https://blog.kakaocdn.net/dn/TGLku/btrgDUCIkBI/ppowIbObTYU9uVXjnTKbO0/img.png">
+        <img src="https://blog.kakaocdn.net/dn/bq36GL/btrgAJv4NJO/rv1K2LmMat5hneAk6vKpZk/img.png">
+        <img src="https://img.insight.co.kr/static/2021/09/30/700/img_20210930094957_0o5r1272.webp">
+    </div>
+    <script>
+        let imgMain = document.querySelector('#main > img');
+
+        let subImgs = document.querySelectorAll('#sub > img');
+        subImgs.forEach(item => {
+            /*
+            // 1번방법
+            // 만약 arrow function[ ()=> ]은 자기 자신이라서, this말고 item을 사용해야함.
+            item.addEventListener('click', function() {
+                imgMain.src = this.src;
+            })
+            */
+
+            // 2번 방법
+            item.onclick = function() {
+                imgMain.src = this.src;
+            }
+            //this는 나 자신의 주솟값을 가지고 있음. 
+            // this는 상수에 있는 값, item은 클로저
+            // item은 원래는 죽어야 할 변수가 죽지 않고 계속 살아 있는 현상 = 클로저 (안죽도록 만든것이 item)
+            // this가 퍼포먼스가 더 좋음.
+        });
+
+
+    </script>
+</body>
+</html>

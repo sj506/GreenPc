@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>innerText와 innerHTML 차이점</title>
+</head>
+<body>
+    <button onclick="innText();">innerText로 표시하기</button>
+    <button onclick="innHtml();">innerHTML로 표시하기</button>
+    <h1>현재 시각 :</h1>
+    <!-- innerText란? -->
+    <div id="current"></div>
+
+    <div>&lt; &gt;</div>
+    <!-- &lt; = 특수기호 < / &gt; = 특수기호 > -->
+    <script>
+        const now = new Date();     // Date는 딱한번만 실행.
+
+        // 아직 호출은 하지 않은 상태
+        // = 은 추가가 아닌 교체. 기존에것은 없어지고 새로운것이 들어가는 것.
+
+        function innText() {    // div의 주솟값을 가지고 와서 innText에 넣어줌.
+            const divCurrent = document.getElementById('current');
+            // getElementById id값만 가지고 올수있으.
+            divCurrent.innerText = `<em>${now}</em>`;   //<em>이 그대로 찍히겠다.
+        }
+
+        function innHtml() {    
+            const divCurrent = document.getElementById('current');
+            divCurrent.innerHTML = `<em>${now}</em>`;   // div의 주솟값을 가지고 와서 innHTML에 넣어줌.
+            //em태그는 태그로 찍겠다. Elements에서 보면 색상이 있는데, 태그로써 인식. 검정색이면 텍스트로 인식.
+        }
+    </script>
+</body>
+</html>

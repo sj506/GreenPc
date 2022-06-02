@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- 
+        sort는  정렬.
+            => 배열.sort.콜백함수
+     -->
+    <script>
+        const arr = [22, 6, 2, 9, 5, 3, 1, 7, 13];
+        // arr.sort();                     // 오름차순으로 정렬됨.
+        console.log(arr.toString());
+        arr.sort(function(a,b) {         // 1주면 오름차순. -1을 주면 내림차순으로 변경.
+            return a-b;                 // 오름차순       
+            // return b-a;                 // 내림차순
+            // arr.sort(); (이렇게 쓰지 않는 이유는 값이 숫자가 아닌 문자열로 인식되므로 1과 13 을 비교했을때 앞에 1만보고 앞쪽으로 정렬되어버림, 즉 1,13,2,22 등 이렇게 정렬됨.)       
+        });
+
+        // console.log(arr.toString());    // 
+        // arr.sort(function(a,b){
+        //     if(a>b) return -1;     
+        // });
+        console.log(arr.toString());
+
+    </script>
+</body>
+</html>

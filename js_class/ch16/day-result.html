@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // new는 개체화를 시키는 것.
+        const now = new Date(); //현재 시간을 받음.
+        const firstDay = new Date('2020-10-01');    // 10월1일 09:00:00시 기준으로 받음
+        // const firstDay = new Date('2020-09-20');    // 09월20일 09:00:00시 기준으로 받음
+
+        const toNow = now.getTime();    // now의 밀리세컨드 // 밀리세컨드 값으로 변경됨.
+        // now에는 1970년부터 1월1일 기준으로 현재시간까지 밀리세컨드 값을 받음. 
+
+        const toFirst = firstDay.getTime()  //firstDay의 밀리세컨드
+        //2020.10.1 기준의 밀리세컨드 값을 받음.
+
+        const passedTime1 = toNow - toFirst;    // 현재부터 firstDay까지의 밀리세컨드 값.
+        //                                           초 *  분 * 시간 * 일(24시간) (초는 밀리세컨드때문에 사용.)
+        const passedTime2 = Math.round(passedTime1/(1000 * 60 * 60 * 24 ))     // 몇일이 지났는지 확인.
+        // round처리해서 정확하게까지 나오지는 않음.
+        document.write(`${firstDay.toLocaleString()}부터 현재까지 ${passedTime2}일이 지났습니다.`);
+        
+    </script>
+</body>
+</html>

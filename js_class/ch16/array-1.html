@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const numbers = new Array();
+        console.log(numbers);
+        // console에 보면 0번방에 나타나지만, 실제적으로는 기존에는 없던 값이므로 불러와도 undefined라고 뜸.
+        /*
+        numbers[0] = 'A';
+        numbers[1] = 'B';
+        numbers[3] = 'D';
+        // 위 처럼 직접적으로 쓰는것은 좋지 않다.
+        */
+        
+        // 실용성 위주.
+        // 안전하게 push로 작성하기.    
+        // 자바스크립트는 동적으로 공간이 늘어난다. 즉, 주솟값이 변경되지 않는다.   
+        numbers.push ('A');
+        numbers.push ('B');
+        numbers.push ('C');
+        console.log(numbers);
+        console.log(numbers.length);    
+
+        console.log('-----------numbers');      // 초깃값이 없는경우.
+        numbers.push ('A');
+        numbers.push ('B');
+        numbers.push ('C');
+        numbers.push ('D');
+        numbers.push ('E');
+        numbers.length = 2;     // 이렇게 쓰면 C부터 뒤는 다 날아감.
+        console.log(numbers);
+        console.log(numbers.length); // 배열수
+
+        console.log('-----------numbers2');     // 초깃값이 없는경우.
+        const numbers2 = new Array(4);
+        console.log(numbers2);
+        console.log(numbers2.length);
+        
+        console.log('-----------numbers3');
+        const numbers3 = [1,2,3];       // 만들자마자 바로 세팅 바로해주는 방법
+        console.log(numbers3);
+        console.log(numbers3.length);
+                
+        console.log('-----------numbers4');     //만들자마자 배열 값 넣는방법 가능.
+        const numbers4 = ['A','B','C'];             // 작성방법 1
+        // const numbers4 = array('A','B','C');     // 작성방법 2
+        console.log(numbers4);
+        console.log(numbers4.length);
+
+    </script>
+</body>
+</html>
+
+<!-- 
+
+    java는 안정성 위주.
+    java는 크기가 바뀌면 주솟값이 바뀐다.
+
+
+ -->

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const now = new Date();     // 현재날짜.
+        // const writedDay = new Date('2022-05-30 10:20:20');  // 내가 지정한 날짜
+        const writedDay = new Date('2021-12-16 13:27:00');  // 내가 지정한 날짜
+
+        // Q.  1~59분 전    => 3,540 + 59초( 59분 59초까지) => 3599
+        // Q. 1~23시간 전   => 82800    => + 59분 => 
+        // Q. 1~15일 전 60 * 60 * 24 * 15 => 1,296,000
+        // Q. 1~3달 전  60 * 60 * 24 * 30 * 3 => 7,776,000
+        // Q. 이후는 날짜
+        function getPassedInfo(sDate, eDate) {  // ((작은값=옛날값)더오래된시간(writeDay), 최근시간(now))
+            const sDateMilSec = sDate.getTime();    // 밀리세컨드 값으로 변경
+            const eDateMilSec = eDate.getTime();    // 밀리세컨드 값으로 변경
+            const passedSec = (eDateMilSec - sDateMilSec) / 1000 ;  // eDate~sDate 지난 초값이 들어감.
+            
+            if(passedSec < 3599) {      // 59분 59초 전                    
+                const min = Math.floor(passedSec / 60); 
+                return `${min}분 전`;
+            } else if(passedSec < 82800) {      // 1시간부터 23시간 사이.
+                const hour = Math.round(passedSec / 3600);  // 3600은 시간. 60초 * 60 => 1시간
+                return `${hour}시간 전`;
+            } else if(passedSec < 1296000) {    // 14일 23시 59분 59초까지 해주기.
+                const date = Math.round(passedSec / 86400); // 1일 ( 3600 * 24시간 )
+                return `${date}일 전`;
+            } else if(passedSec < 7776000) {    // 1일에서 30일 기준으로 계산함. 3달.
+                const mon = Math.round(passedSec / 2592000);
+                return `${mon}달 전`;
+            } else {
+                const year = sDate.getFullYear();
+                const mon = fillZero(sDate.getMonth() +1).padStart(2, '0');
+                const date = fillZero(sDate.getDate()).padStart(2, '0');
+                return `${year}-${mon}-${date}`;
+            }
+        }
+
+        //val 자리에 한자리 숫자였을때, 앞에 0을 붙이기 위해 fillZero를 설정.
+        function fillZero(val) {
+            return ('0' + val).slice(-2);   // -2는 뒤에서 잘라내겠다는 이야기. 
+            // :: val 이 만약 1이라면 결과물은 01이 나타남. 
+        }
+    
+        const result = getPassedInfo(writedDay, now);
+        console.log(result);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 개체화가 된 now객체에 메소드를 추가할 수 있다.
+        const now = new Date(); // now에는 date의 주솟값이 저장됨.
+        
+        const now2 = new Date();
+        // new를 한다는 건 메모리에 올리고, 그 주솟값이 0xAAAA라고 한다면
+
+        now.myFn = function() {     //now에 myFn을 추가하고 거기에 function이 올라가고 
+            alert('dd');
+        }               
+        now.myFn();     //myFn 은 함수가 아니다 라는 뜻. 그래서 아래도 나타나지 않음.
+
+
+        // document.write('현재 시각은 ' + now);
+        // 연산자 앞 뒤가 다를 경우, 항변환을 한다.
+        // string + 객체 => 객체도 스트링으로 변환된다.(자동항변환시켜줌.)
+
+        // document.write('현재 시각은 ' + now.toString());
+        // now.toString() = 뒤에 ()소괄호가 있어서 메소드 호출.
+        // 멤버 필드(속성, 프로퍼티=Property)
+        // 멤버 메소트(메소드, 객체에 포함되어 있는 함수)
+
+        document.write('현재 시각은 ' + now.toLocaleString());
+        //  now. 하면 아래에 많은 메소드들이 있음. property는 한개밖에 없음.
+
+    </script>
+</body>
+</html>
+<!-- 
+        클래스, 멤버필드는 숨긴다.
+        즉, 은닉화/캡슐화 = 외부에서 멤버필드는 직접 쓰기 or 읽기가 안되도록 하는 것!
+        예) 내가 처음만난 사람의 이름 모르듯이 물어보지 않는 이상 보자마자 알 수 없음.
+        은닉화 하는 이유? 내가 사용 끝났더라도 진행중에 변경되는 것을 방지하기 위해서
+        은닉화에서 중요한 부분 : getter / setter => 메소드를 통해서 멤버필드의 값을 가지고 올 수 있는것 / 값을 수정할 수 있는 것.
+        get으로 오픈되어 있는 필드 = 상수 
+        자바스크립트에서 상수 변경할수있지만 빡시다.
+        
+
+
+
+
+ -->
