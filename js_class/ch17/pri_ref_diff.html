@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            let num = 10; //원시타입 리터럴타입 Primitive type
+            const objBox = {
+                num: 10,
+            };
+
+            function changeNum(n) {
+                return (n = 30);
+            }
+
+            function changeObjNum(o) {
+                o.num = 30;
+            }
+
+            console.log(`num: ${num}`);
+            // console.log(changeNum(num));
+            changeNum(num);
+            console.log(`num: ${num}`);
+
+            console.log("-------------------------");
+            console.log(`objBox.num : ${objBox.num}`);
+            changeObjNum(objBox);
+            console.log(`objBox.num : ${objBox.num}`);
+        </script>
+    </body>
+</html>

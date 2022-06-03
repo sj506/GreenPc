@@ -16,12 +16,11 @@
             const divInfo = document.querySelector("#info");
             function addP() {
                 if (divInfo.innerHTML == "") {
-                    const newP = document.createElement("p");
+                    const newP = divInfo.appendChild(document.createElement("p"));
                     const txt = "Dom은 document object model의 줄임말입니다.";
                     const txtNode = document.createTextNode(txt);
 
                     newP.appendChild(txtNode);
-                    document.querySelector("#info").appendChild(newP);
                 } else {
                     divInfo.innerHTML = "";
                 }

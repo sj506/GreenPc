@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>Web programming</h1>
+        <p>공부할 주제를 기록해 보세요.</p>
+        <div>
+            <form action="nodeCreate-result.html" method="post" onsubmit="return false;">
+                <input type="text" id="subject" />
+                <input type="submit" value="추가" onclick="newReg()" />
+                <input type="button" value="삭제" onclick="delReg()" />
+            </form>
+        </div>
+        <div id="itemList">
+            <!-- <div>농구</div> -->
+        </div>
+        <script>
+            const itemList = document.querySelector("#itemList");
+            const inputSubjext = document.querySelector("#subject");
+
+            function newReg() {
+                const newdiv = itemList.appendChild(document.createElement("div"));
+                const txt = inputSubjext.value;
+
+                if (txt === "") {
+                    alert("내용을 입력해주세요.");
+                } else {
+                    newdiv.append(txt);
+                    inputSubjext.value = "";
+
+                    const newBtn = newdiv.appendChild(document.createElement("butten"));
+                    newBtn.innerText = "삭제";
+                    newBtn.style.marginLeft = "200px";
+                    newBtn.style.cursor = "pointer";
+                    newBtn.addEventListener("click", () => newdiv.remove());
+                }
+            }
+
+            // function delReg() {
+            //     const info = document.querySelector("#itemList > div:last-child");
+            //     info.remove();
+            // }
+
+            function delReg() {
+                itemList.lastChild.remove();
+            }
+        </script>
+    </body>
+</html>

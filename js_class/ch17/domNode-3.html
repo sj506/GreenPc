@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div>
+            <h1>DOM을 공부합시다.</h1>
+            <button onclick="addContents2()">더 보기</button>
+            <div id="info"></div>
+            <script>
+                const imgSrc = "https://blog.kakaocdn.net/dn/TGLku/btrgDUCIkBI/ppowIbObTYU9uVXjnTKbO0/img.png";
+                const imgAlt = "이미지정보";
+                const divInfo = document.querySelector("#info");
+
+                function addContents() {
+                    const newP = divInfo.appendChild(document.createElement("p"));
+
+                    // newP.innerHTML = "<img src='https://blog.kakaocdn.net/dn/TGLku/btrgDUCIkBI/ppowIbObTYU9uVXjnTKbO0/img.png' alt=''>";
+                    newP.append("DOM은 document object model의 줄임말입니다");
+
+                    let img = newP.appendChild(document.createElement("img"));
+                    img.src = imgSrc;
+                    img.alt = imgAlt;
+                    img.setAttribute("class", "pic");
+                    const pics = document.querySelectorAll(".pic");
+                    pics.forEach((pic) => {
+                        pic.style.width = "500px";
+                    });
+                }
+
+                function addContents2() {
+                    const div = document.createElement("div");
+                    div.innerHTML = `
+                    <p>DOM은 document object model의 줄임말입니다</p>
+                    <img src = "${imgSrc}" alt = "${imgAlt}">
+                    `;
+                    divInfo.appendChild(div);
+                }
+            </script>
+        </div>
+    </body>
+</html>

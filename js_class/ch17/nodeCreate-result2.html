@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            .parent {
+                display: flex;
+                justify-content: space-between;
+                flex-direction: row;
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Web programming</h1>
+        <p>공부할 주제를 기록해 보세요.</p>
+        <div>
+            <form action="nodeCreate-result.html" method="post" onsubmit="return false;">
+                <input type="text" id="subject" />
+                <input type="submit" value="추가" onclick="newReg()" />
+                <input type="button" value="삭제" onclick="delReg()" />
+            </form>
+        </div>
+        <div id="itemList">
+            <!-- <div>농구</div> -->
+        </div>
+        <script>
+            const itemList = document.querySelector("#itemList");
+            const inputSubjext = document.querySelector("#subject");
+
+            function newReg() {
+                const newDiv = itemList.appendChild(document.createElement("div"));
+                const txt = inputSubjext.value;
+
+                if (txt === "") {
+                    alert("내용을 입력해주세요.");
+                } else {
+                    newDiv.append(txt);
+
+                    newDiv.classList.add("parent");
+                    newDiv.innerHTML = `
+                <div class="content">${txt}</div>
+                <div class="close">X</div>
+                    `;
+
+                    // const newBtn = newDiv.appendChild(document.createElement("butten"));
+                    // newBtn.innerText = "삭제";
+                    // newBtn.style.marginLeft = "200px";
+
+                    const divClose = newDiv.querySelector(".close");
+                    divClose.style.cursor = "pointer";
+
+                    divClose.addEventListener("click", () => divClose.parentElement.remove());
+                    inputSubjext.value = "";
+                }
+            }
+
+            // function delReg() {
+            //     const info = document.querySelector("#itemList > div:last-child");
+            //     info.remove();
+            // }
+
+            function delReg() {
+                itemList.remove();
+            }
+        </script>
+    </body>
+</html>
