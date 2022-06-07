@@ -8,17 +8,13 @@
     </head>
     <body>
         <script>
-            var n1 = "10";
-            var n2 = "5";
-
-            console.log(n1 + n2);
-            console.log(Number(n1) + Number(n2));
-            console.log(n1 * n2);
-            console.log(n1 - n2);
-            console.log(n1 / n2);
-            console.log(n1 % n2);
-
-            //isNaN : 숫자가 아니면 트루
+            function m2() {
+                console.log("1");
+            }
+            if (m2()) {
+                // if 조건식 안에서도 발동함 리턴이 없는 함수는 undefine
+                console.log("2");
+            }
         </script>
     </body>
 </html>

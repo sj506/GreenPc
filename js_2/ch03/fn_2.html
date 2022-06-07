@@ -8,17 +8,17 @@
     </head>
     <body>
         <script>
-            var n1 = "10";
-            var n2 = "5";
+            function sum(n1, n2, n3, n4) {
+                return n1 + n2 + sum2(n3, n4);
+            }
 
-            console.log(n1 + n2);
-            console.log(Number(n1) + Number(n2));
-            console.log(n1 * n2);
-            console.log(n1 - n2);
-            console.log(n1 / n2);
-            console.log(n1 % n2);
+            function sum2(n1, n2) {
+                return n1 + n2;
+            }
 
-            //isNaN : 숫자가 아니면 트루
+            console.log(sum(1, 2, 3, 4));
+
+            //파라미터에 인자값이 없으면 undefind
         </script>
     </body>
 </html>

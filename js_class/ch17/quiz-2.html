@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            input[type="number"] {
+                width: 50px;
+            }
+            table {
+                margin-top: 10px;
+                border-collapse: collapse;
+            }
+
+            tr,
+            td {
+                border: 1px solid #cccf;
+            }
+
+            td {
+                padding: 5px 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div><input type="number" id="rowNum" />행 <input type="number" id="colNum" />열</div>
+        <button onclick="printTable()">작성</button>
+        <div class="tableDiv"></div>
+    </body>
+    <script>
+        const rowNum = document.querySelector("#rowNum");
+        const colNum = document.querySelector("#colNum");
+        const tableDiv = document.querySelector(".tableDiv");
+
+        function printTable() {
+            tableDiv.appendChild(document.createElement("table"));
+            tableDiv.innerHTML = ""; // 리셋!!!!! 달아서 안 쓸거면 넣어줘야함
+
+            for (let i = 0; i < Number(rowNum.value); i++) {
+                tableDiv.appendChild(document.createElement("tr"));
+                for (let j = 0; j < Number(colNum.value); j++) {
+                    tableTd = tableDiv.appendChild(document.createElement("td"));
+                    tableTd.append(i + ", " + j);
+                }
+            }
+        }
+    </script>
+</html>

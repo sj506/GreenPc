@@ -8,17 +8,16 @@
     </head>
     <body>
         <script>
-            var n1 = "10";
-            var n2 = "5";
+            const obj = {
+                b: 222,
+                a: 111,
+                0: 100,
+                1: 200,
+            };
 
-            console.log(n1 + n2);
-            console.log(Number(n1) + Number(n2));
-            console.log(n1 * n2);
-            console.log(n1 - n2);
-            console.log(n1 / n2);
-            console.log(n1 % n2);
-
-            //isNaN : 숫자가 아니면 트루
+            console.log(obj);
+            console.log(obj["0"]);
+            console.log(obj.a);
         </script>
     </body>
 </html>
