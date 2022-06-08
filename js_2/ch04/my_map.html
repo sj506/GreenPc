@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            const myArr = {
+                0: 10,
+                1: 43,
+                2: 22,
+                3: 38,
+                4: 17,
+                5: 56,
+                6: 47,
+                length: 7,
+                forEach: function (cb) {
+                    for (let i = 0; i < this.length; i++) {
+                        const val = this[i];
+                        cb(val, i);
+                    }
+                },
+                //map:    function (cb) {
+                //     const tempArr = [];
+                //     this.forEach(function (item) {
+                //         tempArr.push(cb(item));
+                //     });
+                //     return tempArr;
+                // },
+                map: function (cb, idx) {
+                    const tempArr = [];
+                    for (let i = 0; i < this.length; i++) {
+                        tempArr.push(cb(this[i], i));
+                    }
+                    return tempArr;
+                },
+            };
+
+            const arr2 = myArr.map(function (item, idx) {
+                console.log(idx);
+                return item + 1;
+            });
+            console.log(arr2);
+
+            const arr3 = myArr.map(function (item, idx) {
+                if (idx < 3) {
+                    return item;
+                } else {
+                    return item * 2;
+                }
+            });
+            console.log(arr3);
+        </script>
+    </body>
+</html>
