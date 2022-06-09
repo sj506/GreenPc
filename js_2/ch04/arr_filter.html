@@ -26,6 +26,14 @@
                 }
             });
             console.log(arr3.toString());
+
+            const arr4 = arr.filter((item) => item % 2 === 0);
+            console.log(arr4.toString());
+
+            const arr5 = arr.filter(function (item) {
+                return item % 2 === 0;
+            });
+            console.log(arr5);
         </script>
     </body>
 </html>
