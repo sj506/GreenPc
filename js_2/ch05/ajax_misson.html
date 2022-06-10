@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+            ul {
+                list-style: none;
+            }
+            .container {
+                max-width: 1600px;
+                margin: 0 auto;
+                padding: 30px;
+                background-color: #f5f5f5;
+            }
+            .listing-card {
+                width: 100%;
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+                gap: 30px;
+            }
+            .listing-card li {
+                width: 100%;
+                background-color: #fff;
+                border: 1px solid #f0f0f0;
+            }
+            .listing-card li .img {
+                padding-top: 70%;
+                background-size: cover;
+                background-repeat: no-repeat;
+            }
+            .listing-card li .info {
+                margin: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <ul id="list" class="listing-card">
+                <!-- <li> -->
+                <!-- <div
+                        class="img"
+                        style="background-image: url(https://i.picsum.photos/id/0/561/374.jpg?hmac=L826IW-Os-T-gNuzXTZ6K02fv_xApsmJiTe9H2jcWA8)"
+                    ></div>
+                    <div class="info">
+                        <strong class="author">asdfdsaf</strong>
+                    </div>
+                </li> -->
+            </ul>
+
+            <button onclick="getData()">데이터 가져오기</button>
+        </div>
+        <script>
+            //XML은 장점이 음슴
+            let page = 1;
+            const ulList = document.querySelector("#list");
+
+            function getData() {
+                console.log(`page : ${page}`);
+                fetch(`https://picsum.photos/v2/list?limit=30&page=${page++}`)
+                    .then(function (res) {
+                        console.log(res);
+                        return res.json();
+                    })
+                    .then(function (data) {
+                        makeImg(data);
+                        console.log(data);
+                    }); // 통신하여 메이크리스트에게 데이터를 준다 임무끝!
+            }
+
+            // function makeList(data) {
+            //     data.forEach(function (item) {
+            //         const img = makeImg(item);
+            //     });
+            // }
+            //item은 data 안에서 forEach를 돌리기 때문에 0~끝까지 하나하나 들어감
+
+            function makeImg(data) {
+                data.forEach(function (item) {
+                    const img = document.createElement("img");
+                    let a = ~~(item.width / 10);
+                    let b = ~~(item.height / 10);
+
+                    const liList = ulList.appendChild(document.createElement("li"));
+                    const divList = liList.appendChild(document.createElement("div"));
+                    const divList2 = liList.appendChild(document.createElement("div"));
+                    const strong = divList2.appendChild(document.createElement("strong"));
+
+                    divList.classList.add("img");
+                    divList2.classList.add("info");
+                    strong.innerText = `${item.author}`;
+                    img.src = `https://picsum.photos/id/${item.id}/${a}/${b}`;
+
+                    divList.setAttribute("style", `background-image: url(${img.src}.jpg)`);
+
+                    return img;
+                });
+            }
+        </script>
+    </body>
+</html>
