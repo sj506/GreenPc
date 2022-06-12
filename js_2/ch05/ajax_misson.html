@@ -75,13 +75,6 @@
                     }); // 통신하여 메이크리스트에게 데이터를 준다 임무끝!
             }
 
-            // function makeList(data) {
-            //     data.forEach(function (item) {
-            //         const img = makeImg(item);
-            //     });
-            // }
-            //item은 data 안에서 forEach를 돌리기 때문에 0~끝까지 하나하나 들어감
-
             function makeImg(data) {
                 data.forEach(function (item) {
                     const img = document.createElement("img");
@@ -99,10 +92,59 @@
                     img.src = `https://picsum.photos/id/${item.id}/${a}/${b}`;
 
                     divList.setAttribute("style", `background-image: url(${img.src}.jpg)`);
-
-                    return img;
                 });
             }
+
+            // function makeList(data) {
+            //     data.forEach(function (item) {
+            //         const li = makeImg(item);
+            //         ulList.appendChild(li);
+            //     });
+            // }
+
+            // ------------------------------------------
+            // 방법 1
+            // function makeImg(item) {
+            //     // const img = document.createElement('img');
+            //     // let width = parseInt(item.width * 0.1);
+            //     // let height = ~~(item.height * 0.1);    // / 10  나누기보다 곱하기 써주기 더 빠름. 나누기가 오래걸림.
+            //     // img.src = `https://picsum.photos/id/${item.id}/${width}/${height}`;
+            //     // return img;
+
+            //     let width = parseInt(item.width * 0.1);
+            //     let height = ~~(item.height * 0.1);
+
+            //     const li = document.createElement("li");
+            //     const div = document.createElement("div");
+            //     const div2 = document.createElement("div");
+
+            //     ulList.appendChild(li);
+            //     li.appendChild(div);
+            //     li.appendChild(div2);
+
+            //     div.classList.add("img");
+            //     div.style.backgroundImage = `url('https://picsum.photos/id/${item.id}/${width}/${height}')`;
+            //     div2.classList.add("info");
+
+            //     const strong = document.createElement("strong");
+            //     strong.classList.add("author");
+            //     strong.innerText = item.author;
+            //     div2.appendChild(strong);
+
+            //     return li;
+            // }
+
+            // ------------------------------------------
+
+            // 방법 2
+            // function makeImg(item) {
+            //     const liList = document.createElement('li');
+            //     liList.innerHTML = `<div class="img" style="background-image: url(${item.download_url});"></div>
+            //                         <div class="info">
+            //                         <strong class="author">${item.author}</strong>
+            //                         </div>`;
+            //     return liList;
+            // }
         </script>
     </body>
 </html>
