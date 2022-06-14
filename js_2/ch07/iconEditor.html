@@ -75,7 +75,9 @@
             const tdArray = document.querySelectorAll(".click");
             tdArray.forEach((td) => {
                 td.addEventListener("click", (e) => {
-                    console.log(e.target.style.backgroundColor);
+                    console.log(document.querySelector("input").value);
+                    let targetColor = e.target.style.backgroundColor;
+                    console.log(targetColor);
 
                     if (e.target.style.backgroundColor == "") {
                         console.log(e.target.style.backgroundColor);
