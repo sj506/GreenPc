@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            function fn1() {
+                return new Promise(function (resolve, reject) {
+                    resolve(10);
+                    // 분기로 true false 일때 나오는 값이 다르게!
+                });
+            }
+
+            function fn2(val) {
+                return new Promise(function (resolve) {
+                    setTimeout(function () {
+                        resolve(val * 2);
+                    }, 3000);
+                });
+            }
+
+            async function mainRun() {
+                const val1 = await fn1();
+                console.log(val1);
+                const val2 = await fn2(val1);
+                console.log(val2);
+            }
+
+            mainRun();
+        </script>
+    </body>
+</html>

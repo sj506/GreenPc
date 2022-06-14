@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <div id="container"></div>
+        <script>
+            function elt(name, attr) {
+                //(img , {src , alt} = 객체) 넘어옴
+                const node = document.createElement(name);
+                //img 태그 생김
+                if (attr) {
+                    for (const item in attr) {
+                        // 객체 안에 속성을 순차적으로 뺌 forEach 같은느낌?
+                        if (attr.hasOwnProperty(item)) {
+                            // 객체가 특정 프로퍼티에 대한 소유여부 반환 있으면 true
+                            node.setAttribute(item, attr[item]);
+                        }
+                    }
+                }
+                return node;
+            }
+
+            // const obj = {
+            //     a: 1,
+            //     b: 2,
+            //     c: 3,
+            // };
+
+            // for (const item in obj) {
+            //     console.log(item);
+            //     // a b c 넘어옴
+            // }
+
+            const eleImg = elt("img", {
+                src: "https://en.pimg.jp/066/466/435/1/66466435.jpg",
+                alt: "하마",
+            });
+            console.log(eleImg);
+
+            const divContainer = document.querySelector("#container");
+            divContainer.appendChild(eleImg);
+        </script>
+    </body>
+</html>

@@ -16,15 +16,21 @@
 
             function fn2(val) {
                 return new Promise(function (resolve) {
-                    resolve(val - 1);
+                    setTimeout(function () {
+                        resolve(val - 1);
+                    }, 5000);
                 });
             }
+
+            // 넘나 신기함!! 이 구조를 기억하쟈
+
             function fn3(val) {
                 return new Promise(function (resolve) {
-                    resolve(val + 1);
+                    resolve(val * 20);
                 });
             }
             const p1 = fn1();
+
             p1.then(function (result) {
                 fn2(result).then(function (result2) {
                     fn3(result2).then(function (result3) {

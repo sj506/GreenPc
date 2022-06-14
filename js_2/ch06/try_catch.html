@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+    </head>
+    <body>
+        <script>
+            try {
+                console.log("AAAA");
+                const result = new Array(-1); // 에러 터트리기;
+                console.log("BBBB"); // 얘는 실행안됨 "AAAA" 는 실행됨
+            } catch (e) {
+                console.log(e.name);
+                // e는 에러객체, 에러객체를 문자열(toString)로 넘겨줌
+            } finally {
+                console.log("무조건 실행됨");
+            }
+            console.log("11111");
+            // 에러가 나면 뒤에 것 실행안됨 : 프로그램이 종료되어버림
+            // 그래서 트라이 캣치를 써서 예외처리를 해줌 그러면 에러나도 뒤에 것 실행됨
+
+            console.log("(1) try_catch 문 끝");
+            console.log("------------------------------");
+
+            try {
+                console.log("AAAA");
+                console.log("BBBB");
+                console.log("CCCC");
+            } catch (e) {
+                console.log(e.name); // 실행안됨
+            }
+
+            console.log("(2) try_catch 문 끝");
+            console.log("------------------------------");
+            const val = 10;
+
+            setTimeout(function () {
+                try {
+                    const result = fn2(val);
+                    console.log(result);
+                } catch {
+                    console.log;
+                    ("에러를 잡았습니다!");
+                }
+            }, 3000);
+
+            function fn2(val) {
+                return new Promise(function (resolve) {
+                    setTimeout(function () {
+                        resolve(val - 1);
+                    }, 2000);
+                });
+            }
+        </script>
+    </body>
+</html>

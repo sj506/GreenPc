@@ -1,4 +1,9 @@
 <!DOCTYPE html>
+<?php
+
+$h1 = "Hello"
+?>
+
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
@@ -17,24 +22,20 @@
             //     resolve(val);
             // });
 
-            // const p2 = p1.then(function (result) {
-            //     console.log(`p1 : ${result}`);
-            //     return "hello";
-            // });
-            // p2.then(function (result) {
-            //     console.log(`p2 : ${result}`);
-            // });
-
-            // line. 20~26 => 아래와 같이 사용가능
-
-            p1.then(function (result) {
+            const p2 = p1.then(function (result) {
                 console.log(`p1 : ${result}`);
                 return "hello";
-            }).then(function (result) {
-                console.log(`p2 : ${result}`);
             });
 
-            // 메소드체이닝 . ~ . ~ . 나 자신의 주소값을 리턴해줌
+            p2.then(function (result) {
+                console.log(`p2 : ${result}`);
+            });
+            const h1 = "<?=$h1?>"
+
+            console.log(h1);
+
+            // php 는 서버에서 먼저 뿌리고 거고
+            // javascript 는 브라우저 엔진에서 하는 거고
         </script>
     </body>
 </html>
