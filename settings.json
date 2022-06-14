@@ -1,0 +1,19 @@
+{
+    "liveServer.settings.donotShowInfoMsg": true,
+    "explorer.confirmDragAndDrop": false,
+    "explorer.confirmDelete": false,
+    "git.enableSmartCommit": true,
+    "git.autofetch": true,
+    "php.debug.executablePath": "",
+    "editor.formatOnPaste": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "editor.suggest.preview": true,
+    "editor.showDeprecated": false,
+    "git.confirmSync": false,
+    "prettier.printWidth": 160,
+    "prettier.tabWidth": 4,
+    "git.ignoreRebaseWarning": true,
+    "window.zoomLevel": -1,
+    "php.validate.executablePath": ""
+}

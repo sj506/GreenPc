@@ -31,6 +31,8 @@
         }
     }
     
+
+    
     $stu1 = new Student("홍길동", 21, 1010);
     $stu1->printPeople();
     print("-------------<br>");
