@@ -1,4 +1,4 @@
 <?php
- $day = date("Y-m-d");
+$day = date('Y-m-d');
 
- print $day;
+print $day;

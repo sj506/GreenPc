@@ -19,9 +19,12 @@
                         if (attr.hasOwnProperty(item)) {
                             // 객체가 특정 프로퍼티에 대한 소유여부 반환 있으면 true
                             node.setAttribute(item, attr[item]);
+                            console.log(`item : ${item}`); // 문자열
+                            console.log(`attr[item] : ${attr[item]}`); // 문자열
                         }
                     }
                 }
+                console.log(`node : ${node}`); // 객체
                 return node;
             }
 
