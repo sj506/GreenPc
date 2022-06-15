@@ -1,11 +1,11 @@
 <?php
-include_once "db.php";
+include_once 'db.php';
 $conn = get_conn();
-$sql = "SELECT i_board, title, ctnt ,create_at, mod_at FROM t_board ORDER BY i_board DESC";
+$sql =
+    'SELECT i_board, title, ctnt ,create_at, mod_at FROM t_board ORDER BY i_board DESC';
 // 내가 넣고 싶은 쿼리문을 넣는다
 $result = mysqli_query($conn, $sql);
 mysqli_close($conn);
-
 ?>
 
 <!DOCTYPE html>
@@ -29,23 +29,20 @@ mysqli_close($conn);
             <th>수정시간</th>
             <a href=""></a>
         </tr>
-        <?php
-        while($row = mysqli_fetch_assoc($result))
-        {
+        <?php while ($row = mysqli_fetch_assoc($result)) {
             $i_board = $row['i_board'];
             $title = $row['title'];
             $ctnt = $row['ctnt'];
             $create_at = $row['create_at'];
             $mod_at = $row['mod_at'];
-            print "<tr>";
+            print '<tr>';
             print "<td>${i_board}</td>";
             print "<td><a href='detail.php?i_board=${i_board}'>${title}</a></td>";
             print "<td>${ctnt}</td>";
             print "<td>${create_at}</td>";
             print "<td>${mod_at}</td>";
-            print "</tr>";
-        }
-        ?>
+            print '</tr>';
+        } ?>
     </table>
 </body>
 </html>

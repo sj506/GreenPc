@@ -8,18 +8,17 @@
 //2.protected
 //3.private
 
-class Student {
+class Student
+{
     public $studentId;
     public $studentName;
 
-
-    public function printStudent($id , $name)
+    public function printStudent($id, $name)
     {
         print "ID : {$id} <br>";
         print "Name : {$name} <br>";
     }
 }
-
 
 // 클래스 = 설계도, 틀
 // 프로퍼티 = 클래스 안에서 사용하는 변수
@@ -41,15 +40,11 @@ class Student {
 // $obj->printStudent();
 // ----------------------------------------------------
 
-
-
-
-
-$obj = new Student; // 객체 생성 
+$obj = new Student(); // 객체 생성
 //즉, 객체를 소프트웨어에 실체화 하면 그것을 ‘인스턴스’라고 부른다.
 
 $obj->studentId = 20171234;
-$obj->studentName = "Alice";
+$obj->studentName = 'Alice';
 
 // obj.~~ 과 같은 기능
 
