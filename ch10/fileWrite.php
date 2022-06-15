@@ -8,3 +8,5 @@ if (!$filep) {
 print '파일을 열었습니다. <br>';
 
 fputs($filep, "\n ROMEO : I take thee at thy word;");
+
+close($filep);
