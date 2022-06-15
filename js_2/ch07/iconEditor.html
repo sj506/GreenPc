@@ -72,20 +72,18 @@
 
             createIconEditor(document.body, 10, 10);
 
-            const tdArray = document.querySelectorAll(".click");
+            const tdArray = document.querySelectorAll("td");
             tdArray.forEach((td) => {
                 td.addEventListener("click", (e) => {
-                    console.log(e.target.style.backgroundColor);
-
-                    if (e.target.style.backgroundColor == "") {
-                        console.log(e.target.style.backgroundColor);
-                        e.target.style.backgroundColor = document.querySelector("input").value;
-                    } else if (e.target.style.backgroundColor !== document.querySelector("input").value) {
-                        e.target.style.backgroundColor = "";
+                    // console.log(document.querySelector("input[type=color]").value);
+                    if (e.target.style.backgroundColor == "" || e.target.color16 !== document.querySelector("input[type=color]").value) {
+                        e.target.style.backgroundColor = document.querySelector("input[type=color]").value;
+                        e.target.color16 = document.querySelector("input[type=color]").value;
+                        // 값이 바뀔 때만 color16에 값(16진수 컬러)이 들어감
+                        // console.log(`e.target.color16 : ${e.target.color16}`);
                     } else {
                         e.target.style.backgroundColor = "";
                     }
-                    //e.target = 나 자신
                 });
             });
 
@@ -97,6 +95,7 @@
                 event.stopPropagation();
                 // count = 0;
             }
+
             // function aa() {
             //     alert("aa");
             // }
