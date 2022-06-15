@@ -78,7 +78,6 @@
 
             createIconEditor(document.body, 10, 10);
 
-
             // const tdArray = document.querySelectorAll('.click');
             // tdArray.forEach((td) => {
             //     td.addEventListener('click', (e) => {
@@ -100,18 +99,22 @@
             //     });
             // });
 
-            const tdArray = document.querySelectorAll("td");
+            const tdArray = document.querySelectorAll('td');
             tdArray.forEach((td) => {
-                td.addEventListener("click", (e) => {
-
+                td.addEventListener('click', (e) => {
                     // console.log(document.querySelector("input[type=color]").value);
-                    if (e.target.style.backgroundColor == "" || e.target.color16 !== document.querySelector("input[type=color]").value) {
-                        e.target.style.backgroundColor = document.querySelector("input[type=color]").value;
-                        e.target.color16 = document.querySelector("input[type=color]").value;
+                    if (
+                        e.target.style.backgroundColor == '' ||
+                        e.target.color16 !== document.querySelector('input[type=color]').value
+                    ) {
+                        e.target.style.backgroundColor =
+                            document.querySelector('input[type=color]').value;
+                        e.target.color16 = document.querySelector('input[type=color]').value;
                         // 값이 바뀔 때만 color16에 값(16진수 컬러)이 들어감
                         // console.log(`e.target.color16 : ${e.target.color16}`);
-
-
+                    }
+                });
+            });
             function btnAllClear() {
                 const tableTd = document.querySelectorAll('.click');
                 tableTd.forEach((item) => {
