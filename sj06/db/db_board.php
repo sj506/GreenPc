@@ -31,3 +31,15 @@ function sel_paging_count(&$param)
     $row = mysqli_fetch_assoc($result);
     return $row['cnt'];
 }
+
+function inf_board_list()
+{
+    $sql = "SELECT * FROM mainlist 
+    ORDER BY num desc
+    ";
+    $conn = get_conn();
+    $result = mysqli_query($conn, $sql);
+    mysqli_close($conn);
+
+    return $result;
+}

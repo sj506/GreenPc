@@ -14,12 +14,14 @@ html {
 body {
     font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
     min-width: 320px;
+    width: 100%;
+    height: 100%;
     background-color: #dccbeda8;
 }
 
 main {
     width: 100%;
-    height: 100%;
+    height: 1000px;
 }
 
 button {
@@ -36,7 +38,7 @@ a {
 }
 
 li {
-    list-style: none;
+    /* list-style: none; */
 }
 
 input:focus {
@@ -87,19 +89,15 @@ input:focus {
     align-items: center;
 
     /* margin: 0 auto; */
-    width: 15rem;
-    height: 15rem;
+    width: 15rem !important;
+    height: 15rem !important;
     background-color: #ca82ff;
     border-radius: 50%;
 
     margin-bottom: 3rem;
-    margin-right: 16rem;
-}
 
-.ctntCircle:hover {
-    width: 20rem;
-    height: 20rem;
-    transition: all 0.7s ease-in-out;
+    position: absolute;
+    right: 10%;
 }
 
 .circleList {
@@ -107,6 +105,9 @@ input:focus {
     flex-direction: column;
     align-items: flex-end;
     justify-content: center;
+    margin-top: 150px;
+
+    /* overflow: hidden !important; */
 }
 
 .page {
@@ -114,5 +115,45 @@ input:focus {
     flex-direction: row;
     justify-content: flex-end;
     align-items: center;
-    margin-right: 22.5rem;
+    margin-right: 21rem;
+}
+
+.pageIcon {
+    size: 30px;
+    color: red;
+    transition: all 0.7s ease-in-out;
+}
+
+/* 스와이프 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
