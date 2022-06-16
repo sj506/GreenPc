@@ -1,0 +1,118 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    /* 1rem을 10px로 변환 (원래는 16px) */
+}
+
+body {
+    font-family: 'Apple SD Gothic Neo', 'Noto Sans KR', sans-serif;
+    min-width: 320px;
+    background-color: #dccbeda8;
+}
+
+main {
+    width: 100%;
+    height: 100%;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+/* 기본설정값 */
+
+.circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    margin: 0 auto;
+    width: 20rem;
+    height: 20rem;
+    background-color: #a760ff;
+    border-radius: 50%;
+}
+
+.circle:hover {
+    top: 45%;
+    width: 25rem;
+    height: 25rem;
+    transition: all 0.7s ease-in-out;
+}
+
+.header {
+    display: flex;
+    background-color: #c78eff8a;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.header div {
+    font-size: 1.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-right: 3rem;
+}
+
+.ctntCircle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    /* margin: 0 auto; */
+    width: 15rem;
+    height: 15rem;
+    background-color: #ca82ff;
+    border-radius: 50%;
+
+    margin-bottom: 3rem;
+    margin-right: 16rem;
+}
+
+.ctntCircle:hover {
+    width: 20rem;
+    height: 20rem;
+    transition: all 0.7s ease-in-out;
+}
+
+.circleList {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.page {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    margin-right: 22.5rem;
+}

@@ -1,0 +1,1 @@
+ctntCircle = document.querySelector('#ctntCircle');
