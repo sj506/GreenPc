@@ -8,10 +8,10 @@
 <link rel="stylesheet" href="Default Value.css">
 </head>
 <body>
-    <header class = "header">
+<header class = "header">
         <div><button>Sign</button></div>
         <div><button>Login</button></div>
-    </header>
+</header>
     <main>
     </main>
 </body>

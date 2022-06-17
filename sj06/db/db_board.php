@@ -35,11 +35,23 @@ function sel_paging_count(&$param)
 function inf_board_list()
 {
     $sql = "SELECT * FROM mainlist 
-    ORDER BY num desc
+    ORDER BY num desc limit 10
     ";
     $conn = get_conn();
     $result = mysqli_query($conn, $sql);
     mysqli_close($conn);
 
     return $result;
+}
+
+function sel_board_count()
+{
+    $sql = "SELECT count(num) as cnt FROM mainlist
+    ";
+    $conn = get_conn();
+    $result = mysqli_query($conn, $sql);
+    $row = mysqli_fetch_assoc($result);
+    mysqli_close($conn);
+
+    return $row['cnt'];
 }

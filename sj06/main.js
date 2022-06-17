@@ -9,7 +9,7 @@ ctntCircle.forEach(() => {
 
 var swiper = new Swiper('.mySwiper', {
     direction: 'vertical',
-    slidesPerView: 5,
+    slidesPerView: 3,
     spaceBetween: 10,
     mousewheel: true,
     pagination: {
@@ -18,14 +18,15 @@ var swiper = new Swiper('.mySwiper', {
     },
 });
 
-const hover = document.querySelectorAll('.hover');
-const hoverCircle = document.querySelectorAll('.ctntCircle');
+// const hover = document.querySelectorAll('.hover');
+// const hoverCircle = document.querySelectorAll('.swiper-slide');
 
-hover.forEach((item) => {
-    item.addEventListener('mouseover', function () {
-        item.style.backgroundColor = 'red';
-    });
-});
+// hoverCircle.forEach((item) => {
+//     item.addEventListener('mouseover', function () {
+//         item.classList.toggle('ctntCircleHover');
+//     });
+// });
+
 // -slide:hover {
 //     width: 20rem !important;
 //     height: 20rem !important;

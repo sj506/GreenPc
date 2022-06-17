@@ -16,9 +16,13 @@ $param = [
 $paging_count = sel_paging_count($param);
 
 // $list = board_list($param);
-// print_r($list);
 
 $list = inf_board_list();
+$count = sel_board_count();
+
+print_r($list);
+
+// print $count;
 ?>
 
 <!DOCTYPE html>
@@ -39,11 +43,12 @@ $list = inf_board_list();
         <div><button>Login</button></div>
     </header>
     <main>
-        <div>
+        <div class="flexCircle">
         <div class = "circle"></div>
         </div>
         <div class = "circleList swiper mySwiper">
-            <?php foreach ($list as $item) { ?>
+            
+            <?php foreach ($list as $item) { ?>              
                 <div class = "ctntCircle swiper-wrapper">
                     <div class = "swiper-slide">
                         <div class="hover">

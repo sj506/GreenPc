@@ -10,7 +10,6 @@
     <body>
         <div class="container">
             <header>
-                <a href="">kk</a>
                 <?php include_once 'top.php'; ?>
             </header>
             <main>

@@ -16,12 +16,21 @@ body {
     min-width: 320px;
     width: 100%;
     height: 100%;
-    background-color: #dccbeda8;
+    /* background-color: #dccbeda8; */
+    background-image: url(image/main3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+::-webkit-scrollbar {
+    display: none;
 }
 
 main {
     width: 100%;
-    height: 1000px;
+    height: 100%;
+    display: flex;
+    overflow: hidden;
 }
 
 button {
@@ -47,13 +56,54 @@ input:focus {
 
 /* 기본설정값 */
 
-.circle {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
+/* 스와이프 */
+.swiper {
+    width: 100%;
+    height: 100%;
+}
 
-    margin: 0 auto;
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    /* background: #fff; */
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.flexCircle {
+    width: 80%;
+
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+.circle {
+    /* position: absolute; */
+    /* left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); */
+
+    /* margin: 0 auto; */
     width: 20rem;
     height: 20rem;
     background-color: #a760ff;
@@ -61,7 +111,7 @@ input:focus {
 }
 
 .circle:hover {
-    top: 45%;
+    /* top: 45%; */
     width: 25rem;
     height: 25rem;
     transition: all 0.7s ease-in-out;
@@ -98,6 +148,7 @@ input:focus {
 
     position: absolute;
     right: 10%;
+    top: 30%;
 }
 
 .circleList {
@@ -107,7 +158,7 @@ input:focus {
     justify-content: center;
     margin-top: 150px;
 
-    /* overflow: hidden !important; */
+    overflow: visible !important;
 }
 
 .page {
@@ -124,36 +175,6 @@ input:focus {
     transition: all 0.7s ease-in-out;
 }
 
-/* 스와이프 */
-.swiper {
-    width: 100%;
-    height: 100%;
-}
-
-.swiper-slide {
-    text-align: center;
-    font-size: 18px;
-    /* background: #fff; */
-
-    /* Center slide text vertically */
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    -webkit-justify-content: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    -webkit-align-items: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.swiper-slide img {
-    display: block;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
+.swiper-pagination {
+    top: 35% !important;
 }
