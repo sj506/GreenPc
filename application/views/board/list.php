@@ -25,7 +25,6 @@
                 <td><?= $item->title ?></td>
                 <td><?= $item->created_at ?></td>
             </tr>
-            <a href=""></a>
         <?php } ?>
     </tbody>
     </table>
