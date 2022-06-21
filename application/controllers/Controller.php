@@ -5,7 +5,7 @@ abstract class Controller
 {
     public function __construct($action)
     {
-        $view = $this->$action();
+        $view = $this->$action(); // $action = list (문자열을 보냈는데 함수로 호출이 가능함 놀라움)
         require_once $this->getView($view); // _VIEW / board/list 를 리턴함
     }
 
