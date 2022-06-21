@@ -15,7 +15,10 @@
     trList.forEach((item) => {
         item.style.cursor = 'pointer';
         item.addEventListener('click', () => {
-            location.href = `localhost/board/detail?i_board=${item.dataset.i_board}`;
+            location.href = `detail?i_board=${item.dataset.i_board}`;
         });
     });
 })();
+
+// 캡쳐링 : 부모에게 건 이벤트가 자식까지 전달됨
+// 버블링 : 자식을 눌렀는데 부모까지 전달됨
