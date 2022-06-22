@@ -17,9 +17,14 @@ $i_board = $_GET['i_board'];
                 <div>글쓴이 : <?= $this->data->nm ?></div>
                 <div>작성일 : <?= $this->data->created_at ?></div>
             </div>
+            <?php if (
+                isset($_SESSION[_LOGINUSER]) &&
+                $_SESSION[_LOGINUSER]->i_user == $this->data->i_user
+            ) { ?> 
             <div>
             <a href="mod?i_board=<?= $i_board ?>"><button>수정</button></a>
             <button id="btnDel" data-i_board="<?= $i_board ?>" >삭제</button>
         </div>
+            <?php } ?>
 </body>
 </html>

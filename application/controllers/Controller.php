@@ -1,6 +1,8 @@
 <?php
 namespace application\controllers;
 
+include_once 'application/utils/SessionUtils.php';
+
 abstract class Controller
 {
     public function __construct($action)
@@ -23,6 +25,6 @@ abstract class Controller
             return;
         }
         return _VIEW . '/' . $view;
-        // _VIEW 상수 $도 없고 ""로 안 감싸져있고 모두 대문자네? 상수
+        // _VIEW 상수, $도 없고 ""로 안 감싸져있고 모두 대문자네? 상수
     }
 }

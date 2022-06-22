@@ -17,7 +17,7 @@ class BoardModel extends Model
     public function selBoard(&$param)
     {
         $sql = 'SELECT a.i_board, a.title, a.ctnt, a.created_at, 
-                       b.nm 
+                       b.nm, b.i_user
             FROM t_board AS a 
             INNER JOIN t_user AS b 
             ON a.i_user = b.i_user
@@ -28,7 +28,7 @@ class BoardModel extends Model
         $stmt->execute();
         return $stmt->fetch(PDO::FETCH_OBJ);
     }
-    
+
     public function delBoard(&$param)
     {
         $sql = 'DELETE FROM t_board WHERE i_board = :i_board';
@@ -37,15 +37,36 @@ class BoardModel extends Model
         $stmt->execute();
     }
 
-    // public function insBoard(&$param)
-    // {
-    //     $sql = "INSERT INTO t_board
-    //             (title,ctnt)
-    //             value
-    //             (:title,:ctnt)";
-    //     $stmt = $this->pdo->prepare($sql);
-    //     $stmt->bindParam(1, $param['title']);
-    //     $stmt->bindParam(2, $param['ctnt']);
-    //     return $stmt->execute();
-    // }
+    public function updBoard(&$param)
+    {
+        $sql = "UPDATE t_board
+                set title = :title,
+                ctnt = :ctnt
+                where i_board = :i_board";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':i_board', $param['i_board']);
+        $stmt->bindValue(':title', $param['title']);
+        $stmt->bindValue(':ctnt', $param['ctnt']);
+
+        $stmt->execute();
+    }
+
+    public function insBoard(&$param)
+    {
+        $loginUser = $_SESSION[_LOGINUSER];
+        // print_r($loginUser->i_user);
+
+        $sql = "INSERT INTO t_board
+                (title, ctnt, i_user)
+                value
+                (:title, :ctnt ,:i_user)";
+
+        $stmt = $this->pdo->prepare($sql);
+        $stmt->bindValue(':i_user', $loginUser->i_user);
+        $stmt->bindValue(':title', $param['title']);
+        $stmt->bindValue(':ctnt', $param['ctnt']);
+
+        $stmt->execute();
+    }
 }
