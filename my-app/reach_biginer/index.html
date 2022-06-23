@@ -9,12 +9,14 @@
     <script type="text/babel">
         function App() {
             const [minutes, setMinutes] = React.useState(0);
+            const [flipped, setFlipped] = React.useState(false);
             const onChange = (e) => {
                 setMinutes(e.target.value) / 60;
             };
             const reset = () => {
                 setMinutes(0);
             };
+            const onFlip = () => {};
             return (
                 <div>
                     <h1>Super Converter</h1>
@@ -35,6 +37,7 @@
                         value={Math.round(minutes / 60)}
                     />
                     <button onClick={reset}>리셋</button>
+                    <button onClick={onFlip}>바꿈</button>
                 </div>
             ); // JSX로 만든 태그는 항상 첫글자 대문자
         }
