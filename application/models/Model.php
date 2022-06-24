@@ -11,7 +11,7 @@ class Model
         $dsn =
             _DBTYPE .
             ':host=' .
-            _HOST .
+            _DBHOST .
             ';dbname=' .
             _DBNAME .
             ';charset=' .
