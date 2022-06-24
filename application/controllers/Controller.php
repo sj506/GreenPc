@@ -20,7 +20,7 @@ abstract class Controller
     {
         if (strpos($view, 'redirect:') === 0) {
             // redirect 로 시작하는지 물어보는 것
-            header('Location: http://' . _DBHOST . substr($view, 9));
+            header('Location: ' . substr($view, 9));
             // redirect 뒤에 /.../... 을 가져옴
             return;
         }
