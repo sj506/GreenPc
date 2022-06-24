@@ -8,16 +8,19 @@
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
         function App() {
-            const [minutes, setMinutes] = React.useState(0);
+            const [amount, setAmount] = React.useState(0);
             const [flipped, setFlipped] = React.useState(false);
 
             const onChange = (e) => {
-                setMinutes(e.target.value) / 60;
+                setAmount(e.target.value) / 60;
             };
             const reset = () => {
-                setMinutes(0);
+                setAmount(0);
             };
-            const onFlip = () => {};
+            const onFlip = () => {
+                reset();
+                setFlipped((current) => !current);
+            };
             return (
                 <div>
                     <h1>Super Converter</h1>
@@ -26,19 +29,22 @@
                         id="Minutes"
                         placeholder="Minutes"
                         type="number"
-                        value={minutes}
+                        value={flipped ? amount * 60 : amount}
                         onChange={onChange}
+                        disabled={flipped}
                     />
-                    <h4>You want to convert {minutes}</h4>
+                    <h4>You want to convert {amount}</h4>
                     <label htmlFor="Hours">Hours</label>
                     <input
                         id="Hours"
                         placeholder="Hours"
                         type="number"
-                        value={Math.round(minutes / 60)}
+                        value={flipped ? amount : Math.round(amount / 60)}
+                        onChange={onChange}
+                        disabled={!flipped} // false 면 보임 , true 이면 안 보임
                     />
-                    <button onClick={reset}>리셋</button>
-                    <button onClick={onFlip}>바꿈</button>
+                    <button onClick={reset}>Reset</button>
+                    <button onClick={onFlip}>Flipped</button>
                 </div>
             ); // JSX로 만든 태그는 항상 첫글자 대문자
         }
