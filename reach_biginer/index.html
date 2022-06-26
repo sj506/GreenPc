@@ -7,29 +7,35 @@
     <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
     <script type="text/babel">
-        function Btn({ text, big }) {
+        function Btn({ text, ChangeValue }) {
             // Props.text => {text} 놀랍다...
-            console.log(big);
+            console.log(text, 'was rendered');
             return (
                 <button
+                    onClick={ChangeValue}
+                    //onClick 은 html 내장 이벤트리스너
                     style={{
                         backgroundColor: 'tomato',
                         color: 'white',
                         padding: '10px 20px',
                         border: 0,
                         borderRadius: 10,
-                        fontSize: big ? 30 : 16,
                     }}
                 >
                     Save Btn
                 </button>
             );
         }
+        const MemorizedBtn = React.memo(Btn);
         function App() {
+            // 컨포넌트 각각의 기능을 가지고 있는 부품
+
+            const [value, setValue] = React.useState('Save Changes');
+            const ChangeValue = () => setValue('Revert Changes');
             return (
                 <div>
-                    <Btn text="Save Changes" big="big" />
-                    <Btn text="Continue" />
+                    <MemorizedBtn text={value} ChangeValue={ChangeValue} />
+                    <MemorizedBtn text="Continue" />
                 </div>
             ); // JSX로 만든 태그는 항상 첫글자 대문자
         }
