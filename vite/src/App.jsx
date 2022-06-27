@@ -1,7 +1,7 @@
 function App() {
     return (
         <div>
-            <h1>잘하고있다!</h1>
+            <h1>ㅎㅎ</h1>
         </div>
     );
 }
