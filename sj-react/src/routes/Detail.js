@@ -11,6 +11,7 @@ function Detail() {
   useEffect(() => {
     getMovie();
   }, []);
-  return <h1>코몬코몬</h1>;
+
+  return <h1></h1>;
 }
 export default Detail;
