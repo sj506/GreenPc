@@ -1,8 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function TodoApp() {
   const [todo, setTodo] = useState('');
   const [todoList, setTodoList] = useState([]);
+
+  // const checkTodoList = () => {
+  //   console.log(todoList);
+  // };
+
+  // useEffect(checkTodoList, [todoList]);
+  useEffect(() => console.log(todoList), [todoList]);
 
   const onChange = (e) => {
     setTodo(e.target.value);
@@ -12,11 +19,13 @@ export default function TodoApp() {
     if (todo === '') {
       return;
     }
-    // console.log(todoList);
     setTodoList((currentArray) => [todo, ...currentArray]);
     setTodo('');
   };
-  console.log(todoList);
+
+  const reset = () => {
+    setTodoList([]);
+  };
 
   return (
     <div>
@@ -24,10 +33,11 @@ export default function TodoApp() {
       <form action='' onSubmit={onSubmit}>
         <input type='text' placeholder='Write your to do...' value={todo} onChange={onChange} />
         <button>Add To do</button>
+        <button onClick={reset}>reset</button>
       </form>
       <ul>
-        {todoList.map((item) => (
-          <li>{item}</li>
+        {todoList.map((item, idx) => (
+          <li key={idx}>{item}</li>
         ))}
       </ul>
     </div>
