@@ -1,0 +1,46 @@
+* {
+    padding: 0;
+    margin: 0;
+    background: -moz-repeating-linear-gradient();
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li {
+    list-style: none;
+}
+
+.w-30 {
+    width: 30%;
+}
+
+.navbar {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.192);
+}
+
+.main-intro-text {
+    position: absolute;
+    top: 28%;
+    bottom: 35%;
+    font-size: 200%;
+}
+
+.main-intro-subtext {
+    position: absolute;
+    top: 37%;
+    bottom: 35%;
+    font-size: 150%;
+}
+
+.color-white {
+    color: rgb(255, 255, 255);
+}
